@@ -4,8 +4,8 @@
     font-style: normal;
     font-weight: 400;
     src: local(''),
-         url('../fonts/inika-v21-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/inika-v21-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('./fonts/inika-v21-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('./fonts/inika-v21-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   /* inika-700 - latin */
   @font-face {
@@ -13,51 +13,195 @@
     font-style: normal;
     font-weight: 700;
     src: local(''),
-         url('../fonts/inika-v21-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/inika-v21-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('./fonts/inika-v21-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('./fonts/inika-v21-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
+  /* inter-regular - latin */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('./fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('./fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* inter-700 - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+         url('./fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('./fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+html{
+    box-sizing: border-box;
+}
+*, *::before, *::after{
+    box-sizing: inherit;
+}
 
+.wrapper{
+    max-width: 1222px;
+    margin: 0 auto;
+}
 body{
     margin: 0;
+    padding: 0;
 }
 .header{
 width: 1440px;
 height: 134px;
 background-color: #EDF2EC;
-display: flex;
-justify-content: space-between;
+
 }
 .logo{
-    width: fit-content;
-    height:fit-content;
-    margin-left: 111px;
-    margin-top: 52px;
-}
-.navigation{
     font-family: 'Inika';
     font-size: 16px;
-    font-weight: 700;
-    line-height: 50px;
+    font-weight: 400;
+    line-height: 21px;
     letter-spacing: 0em;
     text-align: left;
 
-    background-color: pink;
-    width: fit-content;
-    height: fit-content;
-    margin-right: 109px;
-    margin-top: 42px;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-top: 52px;
+
+    
+}
+.header-wrapper{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.nav{
+    font-family:'Inika';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #010201;
+
+
 }
 .nav-list{
-    padding-left: 0px;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-wrap: wrap;
     
 }
 .nav-item{
     padding-right: 45px;
     list-style: none;
+    
+}
+a{
+    text-decoration: none;
 }
 .nav-item:last-child{
     padding-right: 0px;
 }
+.nav-item:first-child{
+    color: #E06733;
+    font-weight: 700;
+}
+
+/* Start Welcome */
+
+.welcome {
+    width: 1440px;
+    height: 532px;
+    background-color: #EDF2EC;
+
+}
+.img-welcome{
+    width: 448.8px;
+    height: 407.36px;
+    margin-top: 62px;
+    position: absolute;
+}
+.capText{
+    max-width: 549px;
+    font-family: 'Inter';
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #717171;
+    padding-top: 98px;
+    margin-left: 673px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-bottom: 42px;
+}
+.colortext{
+    color: #499A18;
+}
+.paragraf{
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #636060;
+    
+    margin-left: 673px;
+    width: 525.44px;
+    margin-bottom: 48px;
+}
+.welcome-button{
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000000;
+    margin-left: 673px;
+    width: 158px;
+    height: 44px;
+    border-radius: 10px;
+    border: 2px solid #E06733;
+}
+
+
+
+
+
+
+
+/* Start about */
+
+.about{
+    width: 1440px;
+    height: 666px;
+    background-color: #65b430;
+}
+/* Start service */
+
+.service{
+    width: 1440px;
+    height: 1300px;
+    background-color: #26b3a0;
+}
+/* Start prices */
+.prices{
+    width: 1440px;
+    height: 560px;
+    background-color: #65b430;
+}
+/* Start contacts */
+
+.contacts{
+    width: 1440px;
+    height: 550px;
+    background-color: #26b3a0;
+}
+
+/* Start footer */
