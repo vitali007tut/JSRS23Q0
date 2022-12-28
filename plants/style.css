@@ -276,7 +276,45 @@ a{
     background-color: #EDF2EC;
     padding-top: 40px;
 }
-
+.service_contaner{
+    height: 955px;
+    margin-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.service_item{
+    height: 450px;
+    width: 330px;
+    border: 1px solid #E3E1D5;
+    border-radius: 0px 0px 20px 20px;
+}
+.img_service{
+    height: 350px;
+    width: 329px;
+    padding-bottom: 10px;
+}
+.img_title{
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align:center;
+    color: #E06733;
+}
+.img_text{
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #717171;
+    text-align:center;
+    margin-top: 10px;
+}
 
 /* Start prices */
 .prices{
