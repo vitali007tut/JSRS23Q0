@@ -178,18 +178,61 @@ a{
 
 /* Start about */
 
-.about{
-    width: 1440px;
-    height: 666px;
-    background-color: #65b430;
+.service_title{
+    max-width: 306px;
+    max-height: 94px;
+    color: #499A18;
+    font-family: 'Inika';
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 52px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 109px;
+    position: absolute;
+}
+.service_content{
+    width: 559px;
+    height: 50px;   
+    display: flex;
+    justify-content: space-between;
+    margin-left: 557px;
+    margin-top: 29px;
+
+}
+.service_button{
+    list-style: none;
+    background-color: transparent;
+    height: 50px;
+    width: 161px;
+    left: 955px;
+    top: 69px;
+    border-radius: 5px;
+    border: 1px solid #E06733;
+
+    font-family: 'Inika';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #E06733;
+    display: flex;
+    justify-content: center;
+    padding-top: 12px;
 }
 /* Start service */
 
 .service{
     width: 1440px;
     height: 1300px;
-    background-color: #26b3a0;
+    background-color: #EDF2EC;
+    padding-top: 40px;
 }
+
+
 /* Start prices */
 .prices{
     width: 1440px;
