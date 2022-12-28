@@ -177,7 +177,52 @@ a{
 
 
 /* Start about */
+.about{
+    height: 666px;
+    width: 1440px;
+    left: 0px;
+    top: 666px;
+    border-radius: 0px;
+    background: #FFFFFF;
+}
+.img_house_plant{
+    position: absolute;
+    height: 479px;
+    width: 464px;
+    margin-left: 758px;
+    margin-top: 93px;
+    border-radius: 0px;
+}
+.about_title{
+    font-family: 'Inika';
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 52px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #499A18;
+    height: 102px;
+    width: 463px;
+    padding-top: 161px;
+    margin: 0;
+}
+.colortext_about{
+    color: #E06733;
+}
+.about_text{
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #636060;
+    margin: 0;
+    padding-top: 142px;
 
+    width: 605px;
+
+}
 .service_title{
     max-width: 306px;
     max-height: 94px;
