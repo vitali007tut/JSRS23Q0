@@ -506,5 +506,44 @@ padding: 0px;
     left: 0px;
     top: 3740px;
     border-radius: 0px;
-    background-color: #a56060;
+    background-color: #FFFFFF;
+    
+}
+.wrapper_footer{
+    max-width: 1222px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.footer_data{
+    margin: 0;
+    height: 50px;
+    width: 182px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+}
+.school{
+    height: 50px;
+    width: 211px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+}
+.social{
+    width: 188px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.img_social{
+    width: 32px;
+    height: 32px;
 }
