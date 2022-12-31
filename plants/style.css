@@ -62,16 +62,13 @@ background-color: #EDF2EC;
     line-height: 21px;
     letter-spacing: 0em;
     text-align: left;
-
     font-family: 'Inter';
     font-size: 16px;
     font-weight: 400;
     line-height: 19px;
     letter-spacing: 0em;
     text-align: left;
-    padding-top: 52px;
-
-    
+    padding-top: 51px;
 }
 .header-wrapper{
     display: flex;
@@ -86,18 +83,18 @@ background-color: #EDF2EC;
     letter-spacing: 0em;
     text-align: left;
     color: #010201;
-
-
 }
 .nav-list{
+    margin: 0;
+    padding-left: 0;
+    width: 450px;
     display: flex;
     flex-wrap: wrap;
-    
+    justify-content: space-between;
 }
 .nav-item{
     padding-right: 45px;
-    list-style: none;
-    
+    list-style: none;  
 }
 a{
     text-decoration: none;
@@ -170,12 +167,6 @@ a{
     border: 2px solid #E06733;
 }
 
-
-
-
-
-
-
 /* Start about */
 .about{
     height: 666px;
@@ -187,10 +178,10 @@ a{
 }
 .img_house_plant{
     position: absolute;
-    height: 479px;
+    height: 525px;
     width: 464px;
     margin-left: 758px;
-    margin-top: 93px;
+    margin-top: 68px;
     border-radius: 0px;
 }
 .about_title{
@@ -254,6 +245,7 @@ a{
     width: 161px;
     left: 955px;
     top: 69px;
+
     border-radius: 5px;
     border: 1px solid #E06733;
 
@@ -267,6 +259,8 @@ a{
     display: flex;
     justify-content: center;
     padding-top: 12px;
+    padding-left: 0;
+    padding-right: 0;
 }
 /* Start service */
 
@@ -279,6 +273,7 @@ a{
 .service_contaner{
     height: 955px;
     margin-top: 90px;
+    padding-top: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -293,7 +288,7 @@ a{
 .img_service{
     height: 350px;
     width: 329px;
-    padding-bottom: 10px;
+    margin-top: 15px;
 }
 .img_title{
     font-family: 'Inter';
@@ -303,6 +298,7 @@ a{
     letter-spacing: 0em;
     text-align:center;
     color: #E06733;
+    padding-top: 5px;
 }
 .img_text{
     font-family: 'Inter';
@@ -313,7 +309,7 @@ a{
     text-align: left;
     color: #717171;
     text-align:center;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* Start prices */
@@ -385,7 +381,7 @@ text-align: right;
 }
 .contact_us_button{
     background-color: transparent;
-    height: 50px;
+    height: 52px;
     width: 162px;
     border-radius: 5px;
     border: 1px solid #E06733;
@@ -417,7 +413,7 @@ color: #E06733;
     line-height: 20px;
     color: #000000;
     margin-bottom: 32px;
-    padding-top: 16px;
+    padding-top: 14px;
     padding-left: 40px;
     display: flex;
     justify-content: space-between;
@@ -451,13 +447,13 @@ justify-content: space-between;
 .img_contacts{
     width: 400px;
     height: 496.99px;
-    padding-top: 53px;
+    padding-top: 51px;
     margin-right: 113px;
 }
 .text_contact{
     width: 195px;
     height: 51px;
-    padding-top: 60px;
+    padding-top: 58px;
     margin: 0;
     font-family: 'Inika';
     font-style: normal;
@@ -474,7 +470,7 @@ justify-content: space-between;
     background: #D6E7D2;
     border-radius: 0px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-top: 148px;
+    margin-top: 146px;
     margin-left: 64px;
     font-family: 'Inter';
     font-style: normal;
@@ -512,7 +508,7 @@ padding: 0px;
 .wrapper_footer{
     max-width: 1222px;
     margin: 0 auto;
-    padding-top: 40px;
+    padding-top: 38px;
     padding-bottom: 40px;
     display: flex;
     justify-content: space-between;
@@ -536,12 +532,14 @@ padding: 0px;
     font-weight: 400;
     font-size: 20px;
     line-height: 50px;
+    margin-left: 7px;
 }
 .social{
     width: 188px;
     height: 50px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .img_social{
     width: 32px;
