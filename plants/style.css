@@ -68,10 +68,10 @@ body {
 }
 
 .header {
-    width: 1440px;
+    min-width: 1440px;
     height: 134px;
     background-color: #EDF2EC;
-
+background-size: 100%;
 }
 
 .logo {
@@ -136,10 +136,10 @@ a {
 /* Start Welcome */
 
 .welcome {
-    width: 1440px;
+    min-width: 1440px;
     height: 532px;
     background-color: #EDF2EC;
-
+background-size: 100%;
 }
 
 .welcome_contaner {
@@ -204,11 +204,12 @@ a {
 /* Start about */
 .about {
     height: 666px;
-    width: 1440px;
+    min-width: 1440px;
     left: 0px;
     top: 666px;
     border-radius: 0px;
     background: #FFFFFF;
+    background-size: 100%;
 }
 
 .about_container {
@@ -319,9 +320,10 @@ a {
 /* Start service */
 
 .service {
-    width: 1440px;
+    min-width: 1440px;
     height: 1300px;
     background-color: #EDF2EC;
+    background-size: 100%;
     padding-top: 40px;
 }
 .serviceUp{
@@ -376,9 +378,10 @@ a {
 
 /* Start prices */
 .prices {
-    width: 1440px;
+    min-width: 1440px;
     height: 560px;
     background-color: #FFFFFF;
+    background-size: 100%;
     padding-top: 40px;
 }
 
@@ -421,7 +424,6 @@ a {
 }
 
 .prices_item {
-
     width: 332px;
     height: 282.01px;
     border: 1px solid #E3E1D5;
@@ -506,9 +508,10 @@ a {
 /* Start contacts */
 
 .contacts {
-    width: 1440px;
+    min-width: 1440px;
     height: 550px;
     background: #EDF2EC;
+    background-size: 100%;
 }
 
 .container_contacts {
@@ -575,11 +578,12 @@ a {
 /* Start footer */
 .footer {
     height: 130px;
-    width: 1440px;
+    min-width: 1440px;
     left: 0px;
     top: 3740px;
     border-radius: 0px;
     background-color: #FFFFFF;
+    background-size: 100%;
 
 }
 
