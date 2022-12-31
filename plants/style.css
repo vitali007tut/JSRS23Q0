@@ -210,14 +210,17 @@ a {
     border-radius: 0px;
     background: #FFFFFF;
 }
-.about_container{
-display: flex;
-justify-content: space-between;
+
+.about_container {
+    display: flex;
+    justify-content: space-between;
 }
-.about_text_left{
-   width: 605px;
-height: 350px; 
+
+.about_text_left {
+    width: 605px;
+    height: 350px;
 }
+
 .img_house_plant {
     height: 542px;
     width: 464px;
@@ -399,13 +402,13 @@ height: 350px;
 }
 
 .prices_right {
-    height: 191.01px;
+    height: 405px;
     width: 452px;
 
     display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .prices_item {
@@ -417,11 +420,8 @@ height: 350px;
 }
 
 .img_prices_leafs {
-    position: absolute;
     width: 152px;
     height: 174.99px;
-    left: 1179px;
-    top: 2902.01px;
 }
 
 .text_prices {
