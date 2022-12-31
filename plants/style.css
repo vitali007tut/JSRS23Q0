@@ -210,14 +210,18 @@ a {
     border-radius: 0px;
     background: #FFFFFF;
 }
-
+.about_container{
+display: flex;
+justify-content: space-between;
+}
+.about_text_left{
+   width: 605px;
+height: 350px; 
+}
 .img_house_plant {
-    position: absolute;
-    height: 525px;
+    height: 542px;
     width: 464px;
-    margin-left: 758px;
-    margin-top: 68px;
-    border-radius: 0px;
+    margin-top: 61px;
 }
 
 .about_title {
@@ -248,7 +252,6 @@ a {
     color: #636060;
     margin: 0;
     padding-top: 142px;
-
     width: 605px;
 
 }
