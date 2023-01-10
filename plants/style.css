@@ -594,6 +594,7 @@ a:hover{
 .wrapper_footer {
     max-width: 1222px;
     margin: 0 auto;
+    padding-left: 0;
     padding-top: 38px;
     padding-bottom: 40px;
     display: flex;
@@ -630,7 +631,6 @@ a:hover{
 .school:hover {
     color: #499A18;
     font-size: x-large;
-    border: 2px solid #499A18;
     transition: 1s;
     width: fit-content;
 }
@@ -646,4 +646,7 @@ a:hover{
 .img_social {
     width: 32px;
     height: 32px;
+}
+.footer_item{
+    list-style: none;
 }
