@@ -71,7 +71,7 @@ body {
     min-width: 1440px;
     height: 134px;
     background-color: #EDF2EC;
-background-size: 100%;
+    background-size: 100%;
 }
 
 .logo {
@@ -123,9 +123,6 @@ background-size: 100%;
 a {
     text-decoration: none;
     color: currentColor;
-}
-a:hover{
-    color: #499A18;
 }
 
 .nav-item:last-child {
@@ -203,6 +200,11 @@ a:hover{
     height: 44px;
     border-radius: 10px;
     border: 2px solid #E06733;
+}
+
+button:hover {
+    color: #499A18;
+    border-color: #499A18;
 }
 
 /* Start about */
@@ -285,11 +287,13 @@ a:hover{
     justify-content: space-between;
     padding-top: 29px;
 }
-.service_container{
+
+.service_container {
     display: flex;
     flex-wrap: wrap;
 }
-.serviceUp{
+
+.serviceUp {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -330,10 +334,12 @@ a:hover{
     background-size: 100%;
     padding-top: 40px;
 }
-.serviceUp{
+
+.serviceUp {
     width: 1007px;
     height: 94px;
 }
+
 .serviceDown {
     height: 955px;
     margin-top: 74px;
@@ -594,6 +600,7 @@ a:hover{
 .wrapper_footer {
     max-width: 1222px;
     margin: 0 auto;
+    padding-left: 0;
     padding-top: 38px;
     padding-bottom: 40px;
     display: flex;
@@ -627,12 +634,9 @@ a:hover{
 }
 
 .footer_data:hover,
-.school:hover {
+.school:hover,
+a:hover {
     color: #499A18;
-    font-size: x-large;
-    border: 2px solid #499A18;
-    transition: 1s;
-    width: fit-content;
 }
 
 .social {
@@ -646,4 +650,8 @@ a:hover{
 .img_social {
     width: 32px;
     height: 32px;
+}
+
+.footer_item {
+    list-style: none;
 }
