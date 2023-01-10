@@ -122,6 +122,10 @@ background-size: 100%;
 
 a {
     text-decoration: none;
+    color: currentColor;
+}
+a:hover{
+    color: #499A18;
 }
 
 .nav-item:last-child {
@@ -135,11 +139,11 @@ a {
 
 /* Start Welcome */
 
-.welcome {
+#welcome {
     min-width: 1440px;
     height: 532px;
     background-color: #EDF2EC;
-background-size: 100%;
+    background-size: 100%;
 }
 
 .welcome_contaner {
@@ -202,7 +206,7 @@ background-size: 100%;
 }
 
 /* Start about */
-.about {
+#about {
     height: 666px;
     min-width: 1440px;
     left: 0px;
@@ -319,7 +323,7 @@ background-size: 100%;
 
 /* Start service */
 
-.service {
+#service {
     min-width: 1440px;
     height: 1300px;
     background-color: #EDF2EC;
@@ -377,7 +381,7 @@ background-size: 100%;
 }
 
 /* Start prices */
-.prices {
+#prices {
     min-width: 1440px;
     height: 560px;
     background-color: #FFFFFF;
@@ -507,7 +511,7 @@ background-size: 100%;
 
 /* Start contacts */
 
-.contacts {
+#contacts {
     min-width: 1440px;
     height: 550px;
     background: #EDF2EC;
