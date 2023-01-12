@@ -397,8 +397,6 @@ button:hover {
 }
 
 .wrapper_prices {
-    max-width: 1222px;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -533,8 +531,8 @@ button:hover {
 
 .img_contacts {
     width: 400px;
-    height: 496.99px;
-    padding-top: 51px;
+    height: 578px;
+    padding-top: 20px;
     margin-right: 50px;
 }
 
@@ -609,26 +607,30 @@ button:hover {
 }
 
 .dropdown:hover .dropdown-content {
-    box-shadow:none;
+    box-shadow: none;
     display: block;
 }
 
 .dropdown:hover .dropbtn {
     background: #C1E698;
-    box-shadow:none;
+    box-shadow: none;
 
 }
 
-.img_arrow_in_city{
+.img_arrow_in_city {
     margin-left: 341px;
     background: url(./img/svg/accordion_btn.svg) no-repeat;
-    display: inline-block; /*  Рисунок как блочный элемент */
-    width: 16px; /* Ширина рисунка */
-    height: 16px; /*  Высота рисунка */
+    display: inline-block;
+    /*  Рисунок как блочный элемент */
+    width: 16px;
+    /* Ширина рисунка */
+    height: 16px;
+    /*  Высота рисунка */
 
 }
-.img_arrow_in_city:hover{  
-    background: url(./img/svg/drop_btn_hover.svg) no-repeat;  
+
+.img_arrow_in_city:hover {
+    background: url(./img/svg/drop_btn_hover.svg) no-repeat;
 }
 
 
@@ -645,8 +647,6 @@ button:hover {
 }
 
 .wrapper_footer {
-    max-width: 1222px;
-    margin: 0 auto;
     padding-left: 0;
     padding-top: 38px;
     padding-bottom: 40px;
@@ -701,3 +701,115 @@ button:hover {
 .footer_item {
     list-style: none;
 }
+
+
+/*          Tablet 768           */
+
+@media (max-width: 768px) {
+
+    .header {
+        min-width: 768px;
+        height: 117px;
+    }
+
+    .wrapper {
+        max-width: 668px;
+        margin: 0 auto;
+    }
+
+    #welcome {
+        min-width: 768px;
+        height: 420px;
+    }
+
+    .capText {
+        font-size: 35px;
+    }
+
+    .paragraf {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .img-welcome {
+        width: 280px;
+        height: 254.15px;
+        order: 1;
+    }
+
+    #about {
+        min-width: 768px;
+        height: 783px;
+    }
+
+    .about_title {
+        font-size: 35px;
+        line-height: 46px;
+        text-align: center;
+    }
+
+    .img_house_plant {
+        width: 250px;
+        height: 258px;
+    }
+
+    .about_container {
+        flex-wrap: wrap;
+    }
+
+    #service {
+        min-width: 768px;
+        height: 1780px;
+    }
+
+    .service_title {
+        font-size: 35px;
+        line-height: 46px;
+    }
+
+    .service_item {
+        width: 280px;
+        height: 100px;
+    }
+
+    #prices {
+        min-width: 768px;
+        height: 585px;
+    }
+
+    .text_prices {
+        font-size: 25px;
+        line-height: 35px;
+    }
+    .prices_title {
+        font-size: 35px;
+line-height: 42px;
+    }
+    .prices_right {
+        width: 296px;
+        height: 357.98px;
+    }
+    #contacts{
+        min-width: 768px;
+height: 739px;
+    }
+    .container_contacts{
+        flex-direction: column;
+        align-items: center;
+    }
+    .img_contacts{
+        width: 200px;
+        height: 248.49px;
+        order: 1;
+    }
+    .footer{
+        min-width: 768px;
+        height: 181px;
+    }
+    .wrapper_footer{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/*          Mobile 380           */
