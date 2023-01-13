@@ -68,7 +68,7 @@ body {
 }
 
 .header {
-    min-width: 1440px;
+    width: 1440px;
     height: 134px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -137,7 +137,7 @@ a {
 /* Start Welcome */
 
 #welcome {
-    min-width: 1440px;
+    width: 1440px;
     height: 532px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -211,7 +211,7 @@ button:hover {
 /* Start about */
 #about {
     height: 666px;
-    min-width: 1440px;
+    width: 1440px;
     left: 0px;
     top: 666px;
     border-radius: 0px;
@@ -329,7 +329,7 @@ button:hover {
 /* Start service */
 
 #service {
-    min-width: 1440px;
+    width: 1440px;
     height: 1300px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -389,7 +389,7 @@ button:hover {
 
 /* Start prices */
 #prices {
-    min-width: 1440px;
+    width: 1440px;
     height: 560px;
     background-color: #FFFFFF;
     background-size: 100%;
@@ -517,7 +517,7 @@ button:hover {
 /* Start contacts */
 
 #contacts {
-    min-width: 1440px;
+    width: 1440px;
     height: 550px;
     background: #EDF2EC;
     background-size: 100%;
@@ -637,7 +637,7 @@ button:hover {
 /* Start footer */
 .footer {
     height: 130px;
-    min-width: 1440px;
+    width: 1440px;
     left: 0px;
     top: 3740px;
     border-radius: 0px;
@@ -708,7 +708,7 @@ button:hover {
 @media (max-width: 768px) {
 
     .header {
-        min-width: 768px;
+        width: 768px;
         height: 117px;
     }
 
@@ -718,27 +718,33 @@ button:hover {
     }
 
     #welcome {
-        min-width: 768px;
+        width: 768px;
         height: 420px;
     }
 
     .capText {
+        margin-top: -50px;
         font-size: 35px;
+        margin-bottom: 30px;
     }
 
     .paragraf {
         font-size: 16px;
         line-height: 25px;
+        width: 350px;
+        padding-left: 5px;
+        margin-bottom: 35px;
     }
 
     .img-welcome {
-        width: 280px;
-        height: 254.15px;
+        width: 283px;
+        height: 260px;
+        margin-top: 44px;
         order: 1;
     }
 
     #about {
-        min-width: 768px;
+        width: 768px;
         height: 783px;
     }
 
@@ -746,6 +752,9 @@ button:hover {
         font-size: 35px;
         line-height: 46px;
         text-align: center;
+        padding-top: 47px;
+        padding-left: 121px;
+        width: 545px;
     }
 
     .img_house_plant {
@@ -758,7 +767,7 @@ button:hover {
     }
 
     #service {
-        min-width: 768px;
+        width: 768px;
         height: 1780px;
     }
 
@@ -773,7 +782,7 @@ button:hover {
     }
 
     #prices {
-        min-width: 768px;
+        width: 768px;
         height: 585px;
     }
 
@@ -781,32 +790,39 @@ button:hover {
         font-size: 25px;
         line-height: 35px;
     }
+
     .prices_title {
         font-size: 35px;
-line-height: 42px;
+        line-height: 42px;
     }
+
     .prices_right {
         width: 296px;
         height: 357.98px;
     }
-    #contacts{
-        min-width: 768px;
-height: 739px;
+
+    #contacts {
+        width: 768px;
+        height: 739px;
     }
-    .container_contacts{
+
+    .container_contacts {
         flex-direction: column;
         align-items: center;
     }
-    .img_contacts{
+
+    .img_contacts {
         width: 200px;
         height: 248.49px;
         order: 1;
     }
-    .footer{
-        min-width: 768px;
+
+    .footer {
+        width: 768px;
         height: 181px;
     }
-    .wrapper_footer{
+
+    .wrapper_footer {
         flex-direction: column;
         align-items: center;
     }
