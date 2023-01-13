@@ -68,7 +68,7 @@ body {
 }
 
 .header {
-    min-width: 1440px;
+    width: 1440px;
     height: 134px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -137,7 +137,7 @@ a {
 /* Start Welcome */
 
 #welcome {
-    min-width: 1440px;
+    width: 1440px;
     height: 532px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -211,7 +211,7 @@ button:hover {
 /* Start about */
 #about {
     height: 666px;
-    min-width: 1440px;
+    width: 1440px;
     left: 0px;
     top: 666px;
     border-radius: 0px;
@@ -329,7 +329,7 @@ button:hover {
 /* Start service */
 
 #service {
-    min-width: 1440px;
+    width: 1440px;
     height: 1300px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -389,7 +389,7 @@ button:hover {
 
 /* Start prices */
 #prices {
-    min-width: 1440px;
+    width: 1440px;
     height: 560px;
     background-color: #FFFFFF;
     background-size: 100%;
@@ -397,8 +397,6 @@ button:hover {
 }
 
 .wrapper_prices {
-    max-width: 1222px;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -519,7 +517,7 @@ button:hover {
 /* Start contacts */
 
 #contacts {
-    min-width: 1440px;
+    width: 1440px;
     height: 550px;
     background: #EDF2EC;
     background-size: 100%;
@@ -533,8 +531,8 @@ button:hover {
 
 .img_contacts {
     width: 400px;
-    height: 496.99px;
-    padding-top: 51px;
+    height: 578px;
+    padding-top: 20px;
     margin-right: 50px;
 }
 
@@ -609,33 +607,37 @@ button:hover {
 }
 
 .dropdown:hover .dropdown-content {
-    box-shadow:none;
+    box-shadow: none;
     display: block;
 }
 
 .dropdown:hover .dropbtn {
     background: #C1E698;
-    box-shadow:none;
+    box-shadow: none;
 
 }
 
-.img_arrow_in_city{
+.img_arrow_in_city {
     margin-left: 341px;
     background: url(./img/svg/accordion_btn.svg) no-repeat;
-    display: inline-block; /*  Рисунок как блочный элемент */
-    width: 16px; /* Ширина рисунка */
-    height: 16px; /*  Высота рисунка */
+    display: inline-block;
+    /*  Рисунок как блочный элемент */
+    width: 16px;
+    /* Ширина рисунка */
+    height: 16px;
+    /*  Высота рисунка */
 
 }
-.img_arrow_in_city:hover{  
-    background: url(./img/svg/drop_btn_hover.svg) no-repeat;  
+
+.img_arrow_in_city:hover {
+    background: url(./img/svg/drop_btn_hover.svg) no-repeat;
 }
 
 
 /* Start footer */
 .footer {
     height: 130px;
-    min-width: 1440px;
+    width: 1440px;
     left: 0px;
     top: 3740px;
     border-radius: 0px;
@@ -645,8 +647,6 @@ button:hover {
 }
 
 .wrapper_footer {
-    max-width: 1222px;
-    margin: 0 auto;
     padding-left: 0;
     padding-top: 38px;
     padding-bottom: 40px;
@@ -701,3 +701,202 @@ button:hover {
 .footer_item {
     list-style: none;
 }
+
+
+/*          Tablet 768           */
+
+@media (max-width: 768px) {
+
+    .header {
+        width: 768px;
+        height: 117px;
+    }
+
+    .wrapper {
+        max-width: 668px;
+        margin: 0 auto;
+    }
+
+    #welcome {
+        width: 768px;
+        height: 420px;
+    }
+
+    .capText {
+        margin-top: -50px;
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+
+    .paragraf {
+        font-size: 16px;
+        line-height: 25px;
+        width: 350px;
+        padding-left: 5px;
+        margin-bottom: 35px;
+    }
+
+    .img-welcome {
+        width: 283px;
+        height: 260px;
+        margin-top: 44px;
+        order: 1;
+    }
+
+    #about {
+        width: 768px;
+        height: 783px;
+    }
+
+    .about_title {
+        font-size: 35px;
+        line-height: 46px;
+        text-align: center;
+        padding-top: 47px;
+        padding-left: 107px;
+        width: 545px;
+        margin-bottom: -53px;
+    }
+
+    .about_text {
+        width: 650px;
+        margin-left: -7px;
+    }
+
+    .about_text_left {
+        width: 650px;
+    }
+
+    .img_house_plant {
+        width: 250px;
+        height: 295px;
+        margin-top: 70px;
+    }
+
+    .about_container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #service {
+        width: 768px;
+        height: 1780px;
+    }
+
+    .serviceUp {
+        margin-top: 29px;
+    }
+
+    .service_content {
+        padding-top: 43px;
+    }
+
+    .service_title {
+        font-size: 35px;
+        line-height: 46px;
+    }
+
+    .service_item {
+        width: 281px;
+        height: 450px;
+
+    }
+
+    .img_service {
+        width: 280px;
+    }
+
+    .serviceDown {
+        height: 1426px;
+        margin-top: 115px;
+    }
+
+    .img_text {
+        width: 260px;
+        padding-left: 20px;
+    }
+
+    .img_title {
+        margin-bottom: -5px;
+    }
+
+    #prices {
+        width: 768px;
+        height: 585px;
+    }
+
+    .text_prices {
+        font-size: 25px;
+        line-height: 35px;
+        margin-bottom: -11px;
+    }
+
+    .prices_title {
+        font-size: 35px;
+        line-height: 42px;
+        padding-left: 14px;
+        padding-top: 10px;
+    }
+
+    .prices_right {
+        margin-top: 110px;
+        width: 296px;
+        height: 358px;
+    }
+
+    #contacts {
+        width: 768px;
+        height: 739px;
+    }
+
+    .text_contact {
+        padding-top: 50px;
+    }
+
+    .container_contacts {
+        height: 739px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img_contacts {
+        width: 200px;
+        height: 262px;
+        order: 1;
+        margin-right: -24px;
+        margin-bottom: -6px;
+    }
+
+    .dropdown {
+        margin-top: -82px;
+    }
+
+    .footer {
+        width: 768px;
+        height: 181px;
+    }
+
+    .wrapper_footer {
+        width: 210px;
+        height: 130px;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 28px;
+        justify-content: space-between;
+    }
+
+    .footer_item {
+        line-height: 24px;
+        height: 38px;
+    }
+    .footer_data{
+        width: 170px;
+    }
+
+    .social {
+        height: 38px;
+        margin-top: 22px;
+    }
+}
+
+/*          Mobile 380           */
