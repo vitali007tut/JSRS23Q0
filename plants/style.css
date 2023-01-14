@@ -68,7 +68,7 @@ body {
 }
 
 .header {
-    width: 1440px;
+    min-width: 1440px;
     height: 134px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -137,7 +137,7 @@ a {
 /* Start Welcome */
 
 #welcome {
-    width: 1440px;
+    min-width: 1440px;
     height: 532px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -211,7 +211,7 @@ button:hover {
 /* Start about */
 #about {
     height: 666px;
-    width: 1440px;
+    min-width: 1440px;
     left: 0px;
     top: 666px;
     border-radius: 0px;
@@ -329,7 +329,7 @@ button:hover {
 /* Start service */
 
 #service {
-    width: 1440px;
+    min-width: 1440px;
     height: 1300px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -389,7 +389,7 @@ button:hover {
 
 /* Start prices */
 #prices {
-    width: 1440px;
+    min-width: 1440px;
     height: 560px;
     background-color: #FFFFFF;
     background-size: 100%;
@@ -517,7 +517,7 @@ button:hover {
 /* Start contacts */
 
 #contacts {
-    width: 1440px;
+    min-width: 1440px;
     height: 550px;
     background: #EDF2EC;
     background-size: 100%;
@@ -621,12 +621,8 @@ button:hover {
     margin-left: 341px;
     background: url(./img/svg/accordion_btn.svg) no-repeat;
     display: inline-block;
-    /*  Рисунок как блочный элемент */
     width: 16px;
-    /* Ширина рисунка */
     height: 16px;
-    /*  Высота рисунка */
-
 }
 
 .img_arrow_in_city:hover {
@@ -637,7 +633,7 @@ button:hover {
 /* Start footer */
 .footer {
     height: 130px;
-    width: 1440px;
+    min-width: 1440px;
     left: 0px;
     top: 3740px;
     border-radius: 0px;
@@ -900,3 +896,8 @@ button:hover {
 }
 
 /*          Mobile 380           */
+
+@media (max-width: 380px) {
+
+
+}
