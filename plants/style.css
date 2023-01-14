@@ -428,6 +428,8 @@ button:hover {
     text-align: left;
     color: #000000;
     margin: 0;
+    display: block;
+width: 100%;
 }
 
 .prices_right {
@@ -440,12 +442,7 @@ button:hover {
     align-items: flex-end;
 }
 
-.prices_item {
-    width: 332px;
-    height: 282.01px;
-    border: 1px solid #E3E1D5;
-    border-radius: 20px;
-}
+
 
 .img_prices_leafs {
     width: 152px;
@@ -481,45 +478,34 @@ button:hover {
     text-align: center;
     color: #E06733;
 }
-
-.prices_item {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 34px;
-
+.prices_item{
+    width: 332px;
+height: 282px;
+border: 1px solid #E3E1D5;
+border-radius: 20px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-content: space-evenly;
 }
-
-.drop_items {
+.prices_dropdown{
     width: 250px;
     height: 50px;
     background: #EDF2EC;
     border-radius: 20px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
     font-size: 20px;
     line-height: 20px;
-    color: #000000;
-    margin-bottom: 32px;
-    padding-top: 14px;
-    padding-left: 40px;
+    font-family: 'Inter';
+    font-weight: 700;
     display: flex;
-    justify-content: space-between;
-    
+    align-items: center;
+    justify-content: space-around;
 }
-
-.accordion {
-    position: relative;
+.img_arrow_in_prices{
+    background-image: url(./img/svg/accordion_btn.svg);
     width: 16px;
     height: 16px;
-    background-color: #D9D9D9;
-    border-radius: 8px;
-    border: 0.5px solid #D9D9D9;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
 }
 
 /* Start contacts */
@@ -540,7 +526,7 @@ button:hover {
 .img_contacts {
     width: 400px;
     height: 578px;
-    padding-top: 20px;
+    padding-top: 21px;
     margin-right: 50px;
 }
 
@@ -738,7 +724,7 @@ button:hover {
         line-height: 25px;
         width: 350px;
         padding-left: 5px;
-        margin-bottom: 35px;
+        margin-bottom: 37px;
     }
 
     .img-welcome {
