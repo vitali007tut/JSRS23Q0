@@ -58,7 +58,7 @@ html {
 }
 
 .wrapper {
-    max-width: 1222px;
+    width: 1222px;
     margin: 0 auto;
 }
 
@@ -68,10 +68,18 @@ body {
 }
 
 .header {
-    min-width: 1440px;
+    width: 1440px;
     height: 134px;
     background-color: #EDF2EC;
     background-size: 100%;
+}
+
+.img_burger {
+    /* background-image: url(./img/svg/burger.svg); */
+    background: url(./img/svg/burger.svg);
+    width: 40px;
+    height: 26px;
+    display: none;
 }
 
 .logo {
@@ -137,7 +145,7 @@ a {
 /* Start Welcome */
 
 #welcome {
-    min-width: 1440px;
+    width: 1440px;
     height: 532px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -161,7 +169,7 @@ a {
 }
 
 .capText {
-    max-width: 549px;
+    width: 549px;
     font-family: 'Inter';
     font-size: 45px;
     font-weight: 700;
@@ -211,7 +219,7 @@ button:hover {
 /* Start about */
 #about {
     height: 666px;
-    min-width: 1440px;
+    width: 1440px;
     left: 0px;
     top: 666px;
     border-radius: 0px;
@@ -268,8 +276,8 @@ button:hover {
 }
 
 .service_title {
-    max-width: 306px;
-    max-height: 94px;
+    width: 306px;
+    height: 94px;
     color: #499A18;
     font-family: 'Inika';
     font-size: 40px;
@@ -329,7 +337,7 @@ button:hover {
 /* Start service */
 
 #service {
-    min-width: 1440px;
+    width: 1440px;
     height: 1300px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -389,7 +397,7 @@ button:hover {
 
 /* Start prices */
 #prices {
-    min-width: 1440px;
+    width: 1440px;
     height: 560px;
     background-color: #FFFFFF;
     background-size: 100%;
@@ -403,7 +411,7 @@ button:hover {
 }
 
 .prices_left {
-    height: 391.01px;
+    height: 391px;
     width: 332px;
     display: flex;
     flex-wrap: wrap;
@@ -498,6 +506,7 @@ button:hover {
     padding-left: 40px;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .accordion {
@@ -507,8 +516,7 @@ button:hover {
     background-color: #D9D9D9;
     border-radius: 8px;
     border: 0.5px solid #D9D9D9;
-    margin-bottom: 66px;
-    margin-right: 40px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -517,7 +525,7 @@ button:hover {
 /* Start contacts */
 
 #contacts {
-    min-width: 1440px;
+    width: 1440px;
     height: 550px;
     background: #EDF2EC;
     background-size: 100%;
@@ -633,7 +641,7 @@ button:hover {
 /* Start footer */
 .footer {
     height: 130px;
-    min-width: 1440px;
+    width: 1440px;
     left: 0px;
     top: 3740px;
     border-radius: 0px;
@@ -709,7 +717,7 @@ button:hover {
     }
 
     .wrapper {
-        max-width: 668px;
+        width: 668px;
         margin: 0 auto;
     }
 
@@ -722,6 +730,7 @@ button:hover {
         margin-top: -50px;
         font-size: 35px;
         margin-bottom: 30px;
+        width: 387px;
     }
 
     .paragraf {
@@ -784,12 +793,17 @@ button:hover {
     }
 
     .service_content {
-        padding-top: 43px;
+        padding-top: 10px;
+        width: 560px;
+        flex-wrap: wrap;
+        height: 89px;
+        align-content: space-between;
     }
 
     .service_title {
         font-size: 35px;
         line-height: 46px;
+        margin-bottom: 30px;
     }
 
     .service_item {
@@ -885,7 +899,8 @@ button:hover {
         line-height: 24px;
         height: 38px;
     }
-    .footer_data{
+
+    .footer_data {
         width: 170px;
     }
 
@@ -898,6 +913,223 @@ button:hover {
 /*          Mobile 380           */
 
 @media (max-width: 380px) {
+    .header {
+        width: 380px;
+        height: 96px;
+    }
 
+    .nav {
+        display: none;
+    }
 
+    #welcome {
+        width: 380px;
+        height: 300px;
+    }
+
+    #about {
+        width: 380px;
+        height: 516px;
+    }
+
+    #service {
+        width: 380px;
+        height: 3150px;
+        padding-top: 17px;
+    }
+
+    #prices {
+        width: 380px;
+        height: 512px;
+    }
+
+    #contacts {
+        width: 380px;
+        height: 445px;
+    }
+
+    .footer {
+        width: 380px;
+        height: 146px;
+    }
+
+    .wrapper {
+        width: 330px;
+    }
+
+    .capText {
+        font-size: 25px;
+        line-height: 35px;
+    }
+
+    .paragraf {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .welcome-button {
+        font-size: 10px;
+        line-height: 20px;
+        width: 100px;
+        height: 34.14px;
+    }
+
+    .about_title {
+        font-size: 25px;
+        line-height: 33px;
+    }
+
+    .about_text {
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+    .img_house_plant {
+        width: 150px;
+        height: 175px;
+        margin-top: -10px;
+    }
+
+    .service_title {
+        font-size: 25px;
+        line-height: 33px;
+        width: 270px;
+        margin-bottom: 0px;
+    }
+
+    .service_button {
+        width: 121px;
+        height: 35px;
+        font-size: 15px;
+        line-height: 20px;
+        padding-top: 7px;
+    }
+
+    .service_item {
+        margin-left: 24px;
+    }
+    .serviceDown{
+        height: 2870px;
+    }
+    .service_content {
+        width: 252px;
+    }
+
+    .img_service {
+        width: 279px;
+        height: 350px;
+    }
+
+    .img_title {
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .img_text {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .prices_title {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .drop_items {
+        font-size: 15px;
+        line-height: 20px;
+        width: 180px;
+        height: 49.72px;
+        padding-left: 31px;
+        margin-bottom: 0px;
+    }
+
+    .text_prices {
+        font-size: 20px;
+        line-height: 35px;
+        width: 230px;
+    }
+
+    .contact_us_button {
+        width: 121px;
+        height: 35px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .text_contact {
+
+        font-size: 25px;
+        line-height: 33px;
+    }
+
+    .dropbtn {
+        width: 300px;
+        height: 50px;
+    }
+
+    .img_contacts {
+        width: 100px;
+        height: 124.25px;
+    }
+
+    .header-wrapper {
+        align-items: center;
+    }
+
+    .img_burger {
+        display: block;
+        margin-top: 48px;
+    }
+
+    .img-welcome {
+        display: none;
+    }
+
+    .capText {
+        width: 340px;
+        margin-top: -56px;
+        margin-bottom: 20px;
+    }
+
+    .paragraf {
+        padding-left: 0px;
+        margin-bottom: 26px;
+    }
+
+    .about_title {
+        padding-left: 0px;
+        width: 100%;
+    }
+
+    .about_text {
+        width: 330px;
+        margin-left: 0px;
+        padding-top: 76px;
+    }
+    .prices_item{
+        width: 224px;
+        height: 235px;
+        padding-top: 35px;
+    }
+    .prices_title{
+        display: block;
+        width: 130px;
+        padding-left: 28px;
+        padding-top: 0px;
+    }
+    .prices_left{
+        height: 300px;
+        justify-content: center;
+    }
+    .prices_right{
+        margin-top: 24px;
+        height: 124px;
+    }
+    .img_prices_leafs{
+        display: none;
+    }
+    .container_contacts{
+        height: 455px;
+    }
 }
