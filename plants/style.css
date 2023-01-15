@@ -982,6 +982,9 @@ button:hover {
         height: 175px;
         margin-top: -10px;
     }
+    .img_arrow_in_city{
+        margin-left: 204px
+    }
 
     .service_title {
         font-size: 25px;
