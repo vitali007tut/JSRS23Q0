@@ -58,7 +58,7 @@ html {
 }
 
 .wrapper {
-    max-width: 1222px;
+    width: 1222px;
     margin: 0 auto;
 }
 
@@ -72,6 +72,14 @@ body {
     height: 134px;
     background-color: #EDF2EC;
     background-size: 100%;
+}
+
+.img_burger {
+    /* background-image: url(./img/svg/burger.svg); */
+    background: url(./img/svg/burger.svg);
+    width: 40px;
+    height: 26px;
+    display: none;
 }
 
 .logo {
@@ -161,7 +169,7 @@ a {
 }
 
 .capText {
-    max-width: 549px;
+    width: 549px;
     font-family: 'Inter';
     font-size: 45px;
     font-weight: 700;
@@ -268,8 +276,8 @@ button:hover {
 }
 
 .service_title {
-    max-width: 306px;
-    max-height: 94px;
+    width: 306px;
+    height: 94px;
     color: #499A18;
     font-family: 'Inika';
     font-size: 40px;
@@ -403,7 +411,7 @@ button:hover {
 }
 
 .prices_left {
-    height: 391.01px;
+    height: 391px;
     width: 332px;
     display: flex;
     flex-wrap: wrap;
@@ -420,6 +428,8 @@ button:hover {
     text-align: left;
     color: #000000;
     margin: 0;
+    display: block;
+    width: 100%;
 }
 
 .prices_right {
@@ -432,12 +442,7 @@ button:hover {
     align-items: flex-end;
 }
 
-.prices_item {
-    width: 332px;
-    height: 282.01px;
-    border: 1px solid #E3E1D5;
-    border-radius: 20px;
-}
+
 
 .img_prices_leafs {
     width: 152px;
@@ -475,43 +480,35 @@ button:hover {
 }
 
 .prices_item {
+    width: 332px;
+    height: 282px;
+    border: 1px solid #E3E1D5;
+    border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 34px;
-
+    align-content: space-evenly;
 }
 
-.drop_items {
+.prices_dropdown {
     width: 250px;
     height: 50px;
     background: #EDF2EC;
     border-radius: 20px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
     font-size: 20px;
     line-height: 20px;
-    color: #000000;
-    margin-bottom: 32px;
-    padding-top: 14px;
-    padding-left: 40px;
+    font-family: 'Inter';
+    font-weight: 700;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.accordion {
-    position: relative;
+.img_arrow_in_prices {
+    background-image: url(./img/svg/accordion_btn.svg);
     width: 16px;
     height: 16px;
-    background-color: #D9D9D9;
-    border-radius: 8px;
-    border: 0.5px solid #D9D9D9;
-    margin-bottom: 66px;
-    margin-right: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
 }
 
 /* Start contacts */
@@ -532,7 +529,7 @@ button:hover {
 .img_contacts {
     width: 400px;
     height: 578px;
-    padding-top: 20px;
+    padding-top: 21px;
     margin-right: 50px;
 }
 
@@ -621,12 +618,8 @@ button:hover {
     margin-left: 341px;
     background: url(./img/svg/accordion_btn.svg) no-repeat;
     display: inline-block;
-    /*  Рисунок как блочный элемент */
     width: 16px;
-    /* Ширина рисунка */
     height: 16px;
-    /*  Высота рисунка */
-
 }
 
 .img_arrow_in_city:hover {
@@ -713,7 +706,7 @@ button:hover {
     }
 
     .wrapper {
-        max-width: 668px;
+        width: 668px;
         margin: 0 auto;
     }
 
@@ -726,6 +719,7 @@ button:hover {
         margin-top: -50px;
         font-size: 35px;
         margin-bottom: 30px;
+        width: 387px;
     }
 
     .paragraf {
@@ -733,7 +727,7 @@ button:hover {
         line-height: 25px;
         width: 350px;
         padding-left: 5px;
-        margin-bottom: 35px;
+        margin-bottom: 37px;
     }
 
     .img-welcome {
@@ -788,12 +782,17 @@ button:hover {
     }
 
     .service_content {
-        padding-top: 43px;
+        padding-top: 10px;
+        width: 560px;
+        flex-wrap: wrap;
+        height: 89px;
+        align-content: space-between;
     }
 
     .service_title {
         font-size: 35px;
         line-height: 46px;
+        margin-bottom: 30px;
     }
 
     .service_item {
@@ -850,25 +849,28 @@ button:hover {
     }
 
     .text_contact {
-        padding-top: 50px;
+        padding-top: 41px;
     }
 
     .container_contacts {
         height: 739px;
         flex-direction: column;
         align-items: center;
+        margin-top: 9px;
     }
 
     .img_contacts {
         width: 200px;
         height: 262px;
         order: 1;
+
+            padding-top: 0px;
         margin-right: -24px;
         margin-bottom: -6px;
     }
 
     .dropdown {
-        margin-top: -82px;
+        margin-top: -102px;
     }
 
     .footer {
@@ -881,7 +883,7 @@ button:hover {
         height: 130px;
         flex-direction: column;
         align-items: center;
-        padding-top: 28px;
+        padding-top: 21px;
         justify-content: space-between;
     }
 
@@ -889,7 +891,8 @@ button:hover {
         line-height: 24px;
         height: 38px;
     }
-    .footer_data{
+
+    .footer_data {
         width: 170px;
     }
 
@@ -900,3 +903,262 @@ button:hover {
 }
 
 /*          Mobile 380           */
+
+@media (max-width: 380px) {
+    .header {
+        width: 380px;
+        height: 96px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    #welcome {
+        width: 380px;
+        height: 300px;
+    }
+
+    #about {
+        width: 380px;
+        height: 516px;
+    }
+
+    #service {
+        width: 380px;
+        height: 3150px;
+        padding-top: 17px;
+    }
+
+    #prices {
+        width: 380px;
+        height: 512px;
+    }
+
+    #contacts {
+        width: 380px;
+        height: 445px;
+        margin-top: 14px;
+    }
+
+    .footer {
+        width: 380px;
+        height: 146px;
+    }
+
+    .wrapper {
+        width: 330px;
+    }
+
+    .capText {
+        font-size: 25px;
+        line-height: 35px;
+    }
+
+    .paragraf {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .welcome-button {
+        font-size: 10px;
+        line-height: 20px;
+        width: 100px;
+        height: 34.14px;
+    }
+
+    .about_title {
+        font-size: 25px;
+        line-height: 33px;
+    }
+
+    .about_text {
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+    .img_house_plant {
+        width: 150px;
+        height: 175px;
+        margin-top: -10px;
+    }
+
+    .service_title {
+        font-size: 25px;
+        line-height: 33px;
+        width: 270px;
+        margin-bottom: 0px;
+    }
+
+    .service_button {
+        width: 121px;
+        height: 35px;
+        font-size: 15px;
+        line-height: 20px;
+        padding-top: 7px;
+    }
+
+    .service_item {
+        margin-left: 24px;
+    }
+
+    .serviceDown {
+        height: 2870px;
+    }
+
+    .service_content {
+        width: 252px;
+    }
+
+    .img_service {
+        width: 279px;
+        height: 350px;
+    }
+
+    .img_title {
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .img_text {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .prices_title {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .drop_items {
+        font-size: 15px;
+        line-height: 20px;
+        width: 180px;
+        height: 49.72px;
+        padding-left: 31px;
+        margin-bottom: 0px;
+    }
+
+    .text_prices {
+        font-size: 20px;
+        line-height: 35px;
+        width: 230px;
+        text-align: center;
+    }
+
+    .contact_us_button {
+        width: 121px;
+        height: 35px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .text_contact {
+padding-top: 41px;
+padding-left: 36px;
+        font-size: 25px;
+        line-height: 33px;
+        padding-top: 28px;
+    }
+
+    .dropbtn {
+        width: 300px;
+        height: 50px;
+    }
+
+    .img_contacts {
+        width: 100px;
+        height: 124.25px;
+        padding-top: 0px;
+            margin-right: 4px;
+            margin-bottom: 9px;
+    }
+
+    .header-wrapper {
+        align-items: center;
+    }
+
+    .img_burger {
+        display: block;
+        margin-top: 48px;
+    }
+
+    .img-welcome {
+        display: none;
+    }
+
+    .capText {
+        width: 340px;
+        margin-top: -56px;
+        margin-bottom: 20px;
+    }
+
+    .paragraf {
+        padding-left: 0px;
+        margin-bottom: 26px;
+    }
+
+    .about_title {
+        padding-left: 0px;
+        width: 100%;
+    }
+
+    .about_text {
+        width: 330px;
+        margin-left: 0px;
+        padding-top: 76px;
+    }
+
+    .prices_title {
+        display: block;
+        width: 130px;
+        padding-left: 28px;
+        padding-top: 0px;
+        margin-bottom: 40px;
+    }
+
+    .prices_left {
+        height: 300px;
+        justify-content: center;
+    }
+
+    .prices_right {
+        margin-top: 24px;
+        height: 124px;
+        align-items: center;
+            padding-left: 32px;
+    }
+
+    .img_prices_leafs {
+        display: none;
+    }
+
+    .container_contacts {
+        height: 455px;
+    }
+
+    .prices_item {
+        width: 224px;
+        height: 235px;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .prices_dropdown {
+        width: 180px;
+        height: 50px;
+        font-size: 15px;
+        line-height: 20px;
+        justify-content: space-evenly;
+    }
+    .dropdown{
+        margin-top: -38px;
+    }
+    .social{
+        margin-top: 12px;
+    }
+    .wrapper_footer{
+        justify-content: center;
+        padding: 0;
+    }
+}
