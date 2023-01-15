@@ -74,7 +74,7 @@ body {
     background-size: 100%;
 }
 
-.img_burger {
+#img_burger {
     /* background-image: url(./img/svg/burger.svg); */
     background: url(./img/svg/burger.svg);
     width: 40px;
@@ -1081,7 +1081,7 @@ padding-left: 36px;
         align-items: center;
     }
 
-    .img_burger {
+    #img_burger {
         display: block;
         margin-top: 48px;
     }
@@ -1164,4 +1164,9 @@ padding-left: 36px;
         justify-content: center;
         padding: 0;
     }
+}
+
+#img_burger.active {
+    transform: rotate(90deg);
+    transition: all 0.4s;
 }
