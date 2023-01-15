@@ -429,7 +429,7 @@ button:hover {
     color: #000000;
     margin: 0;
     display: block;
-width: 100%;
+    width: 100%;
 }
 
 .prices_right {
@@ -478,17 +478,19 @@ width: 100%;
     text-align: center;
     color: #E06733;
 }
-.prices_item{
+
+.prices_item {
     width: 332px;
-height: 282px;
-border: 1px solid #E3E1D5;
-border-radius: 20px;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-align-content: space-evenly;
+    height: 282px;
+    border: 1px solid #E3E1D5;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-evenly;
 }
-.prices_dropdown{
+
+.prices_dropdown {
     width: 250px;
     height: 50px;
     background: #EDF2EC;
@@ -501,7 +503,8 @@ align-content: space-evenly;
     align-items: center;
     justify-content: space-around;
 }
-.img_arrow_in_prices{
+
+.img_arrow_in_prices {
     background-image: url(./img/svg/accordion_btn.svg);
     width: 16px;
     height: 16px;
@@ -846,25 +849,28 @@ align-content: space-evenly;
     }
 
     .text_contact {
-        padding-top: 50px;
+        padding-top: 41px;
     }
 
     .container_contacts {
         height: 739px;
         flex-direction: column;
         align-items: center;
+        margin-top: 9px;
     }
 
     .img_contacts {
         width: 200px;
         height: 262px;
         order: 1;
+
+            padding-top: 0px;
         margin-right: -24px;
         margin-bottom: -6px;
     }
 
     .dropdown {
-        margin-top: -82px;
+        margin-top: -102px;
     }
 
     .footer {
@@ -877,7 +883,7 @@ align-content: space-evenly;
         height: 130px;
         flex-direction: column;
         align-items: center;
-        padding-top: 28px;
+        padding-top: 21px;
         justify-content: space-between;
     }
 
@@ -932,6 +938,7 @@ align-content: space-evenly;
     #contacts {
         width: 380px;
         height: 445px;
+        margin-top: 14px;
     }
 
     .footer {
@@ -994,9 +1001,11 @@ align-content: space-evenly;
     .service_item {
         margin-left: 24px;
     }
-    .serviceDown{
+
+    .serviceDown {
         height: 2870px;
     }
+
     .service_content {
         width: 252px;
     }
@@ -1034,6 +1043,7 @@ align-content: space-evenly;
         font-size: 20px;
         line-height: 35px;
         width: 230px;
+        text-align: center;
     }
 
     .contact_us_button {
@@ -1044,9 +1054,11 @@ align-content: space-evenly;
     }
 
     .text_contact {
-
+padding-top: 41px;
+padding-left: 36px;
         font-size: 25px;
         line-height: 33px;
+        padding-top: 28px;
     }
 
     .dropbtn {
@@ -1057,6 +1069,9 @@ align-content: space-evenly;
     .img_contacts {
         width: 100px;
         height: 124.25px;
+        padding-top: 0px;
+            margin-right: 4px;
+            margin-bottom: 9px;
     }
 
     .header-wrapper {
@@ -1093,29 +1108,57 @@ align-content: space-evenly;
         margin-left: 0px;
         padding-top: 76px;
     }
-    .prices_item{
-        width: 224px;
-        height: 235px;
-        padding-top: 35px;
-    }
-    .prices_title{
+
+    .prices_title {
         display: block;
         width: 130px;
         padding-left: 28px;
         padding-top: 0px;
+        margin-bottom: 40px;
     }
-    .prices_left{
+
+    .prices_left {
         height: 300px;
         justify-content: center;
     }
-    .prices_right{
+
+    .prices_right {
         margin-top: 24px;
         height: 124px;
+        align-items: center;
+            padding-left: 32px;
     }
-    .img_prices_leafs{
+
+    .img_prices_leafs {
         display: none;
     }
-    .container_contacts{
+
+    .container_contacts {
         height: 455px;
+    }
+
+    .prices_item {
+        width: 224px;
+        height: 235px;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .prices_dropdown {
+        width: 180px;
+        height: 50px;
+        font-size: 15px;
+        line-height: 20px;
+        justify-content: space-evenly;
+    }
+    .dropdown{
+        margin-top: -38px;
+    }
+    .social{
+        margin-top: 12px;
+    }
+    .wrapper_footer{
+        justify-content: center;
+        padding: 0;
     }
 }
