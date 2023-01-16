@@ -1,11 +1,19 @@
-const ButtonBurger = document.getElementById('img_burger');
-const NAV = document.getElementsByClassName("nav");
-const att = document.createAttribute("nav");
+let menuBtn = document.getElementById('img_burger');
+let menu = document.querySelector('.nav');
 
-ButtonBurger.addEventListener('click', (event) => {
-
-    event.target.classList.add('active');
-    
-    //att.value = 'display: block';
-    //NAV.classList.classList.add;
+menuBtn.addEventListener('click', function(){
+	menuBtn.classList.toggle('active');
+	menu.classList.toggle('active');
 })
+
+
+const buttons = document.querySelectorAll('.link');
+
+function handleClick() {
+    menuBtn.classList.remove('active');
+    menu.classList.remove('active');
+  }
+
+buttons.forEach((button) => {
+    button.addEventListener('click', handleClick);
+  });
