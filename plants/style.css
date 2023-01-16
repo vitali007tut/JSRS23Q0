@@ -74,7 +74,7 @@ body {
     background-size: 100%;
 }
 
-.img_burger {
+#img_burger {
     /* background-image: url(./img/svg/burger.svg); */
     background: url(./img/svg/burger.svg);
     width: 40px;
@@ -112,6 +112,7 @@ body {
     letter-spacing: 0em;
     text-align: left;
     color: #010201;
+
 }
 
 .nav-list {
@@ -864,7 +865,7 @@ button:hover {
         height: 262px;
         order: 1;
 
-            padding-top: 0px;
+        padding-top: 0px;
         margin-right: -24px;
         margin-bottom: -6px;
     }
@@ -911,7 +912,19 @@ button:hover {
     }
 
     .nav {
-        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #C1E698;
+        transform: translateX(-100%);
+        transition: transform 0.5s;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        margin: 10%;
     }
 
     #welcome {
@@ -982,7 +995,8 @@ button:hover {
         height: 175px;
         margin-top: -10px;
     }
-    .img_arrow_in_city{
+
+    .img_arrow_in_city {
         margin-left: 204px
     }
 
@@ -1057,8 +1071,8 @@ button:hover {
     }
 
     .text_contact {
-padding-top: 41px;
-padding-left: 36px;
+        padding-top: 41px;
+        padding-left: 36px;
         font-size: 25px;
         line-height: 33px;
         padding-top: 28px;
@@ -1066,24 +1080,34 @@ padding-left: 36px;
 
     .dropbtn {
         width: 300px;
-        height: 50px;
+    }
+
+    .dropdown-content {
+        width: 300px;
+    }
+    .dropdown-content a{
+        width: 260px;
     }
 
     .img_contacts {
         width: 100px;
         height: 124.25px;
         padding-top: 0px;
-            margin-right: 4px;
-            margin-bottom: 9px;
+        margin-right: 4px;
+        margin-bottom: 9px;
     }
 
     .header-wrapper {
         align-items: center;
     }
 
-    .img_burger {
+    #img_burger {
         display: block;
         margin-top: 48px;
+
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
     }
 
     .img-welcome {
@@ -1129,7 +1153,7 @@ padding-left: 36px;
         margin-top: 24px;
         height: 124px;
         align-items: center;
-            padding-left: 32px;
+        padding-left: 32px;
     }
 
     .img_prices_leafs {
@@ -1154,14 +1178,26 @@ padding-left: 36px;
         line-height: 20px;
         justify-content: space-evenly;
     }
-    .dropdown{
+
+    .dropdown {
         margin-top: -38px;
     }
-    .social{
+
+    .social {
         margin-top: 12px;
     }
-    .wrapper_footer{
+
+    .wrapper_footer {
         justify-content: center;
         padding: 0;
     }
+}
+
+#img_burger.active {
+    transform: rotate(90deg);
+    transition: all 0.4s;
+}
+
+.nav.active {
+    transform: translateX(0);
 }
