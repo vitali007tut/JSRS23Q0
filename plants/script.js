@@ -18,4 +18,4 @@ buttons.forEach((button) => {
     button.addEventListener('click', handleClick);
   });
 
-  console.log('1. 24\n2. 24\n3. 0\n4. 20')
+  console.log('1. 24\n2. 24\n3. 10\n4. 20')
