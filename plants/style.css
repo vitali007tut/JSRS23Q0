@@ -221,7 +221,7 @@ button:hover {
 /* Start about */
 #about {
     height: 666px;
-    width: 1440px;
+    max-width: 1440px;
     left: 0px;
     top: 666px;
     border-radius: 0px;
@@ -235,13 +235,14 @@ button:hover {
 }
 
 .about_text_left {
-    width: 605px;
-    height: 350px;
+  /*  width: 605px; */
+    min-height: 350px;
 }
 
 .img_house_plant {
-    height: 542px;
-    width: 464px;
+   /* height: 542px;
+    width: 464px;*/
+    width: 38%;
     margin-top: 61px;
 }
 
@@ -289,6 +290,7 @@ button:hover {
     text-align: left;
     margin-top: 0;
     margin-bottom: 0;
+    margin-right: 142px;
 }
 
 .service_content {
@@ -339,7 +341,7 @@ button:hover {
 /* Start service */
 
 #service {
-    width: 1440px;
+    max-width: 1440px;
     height: 1300px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -347,7 +349,7 @@ button:hover {
 }
 
 .serviceUp {
-    width: 1007px;
+    max-width: 1007px;
     height: 94px;
 }
 
@@ -399,7 +401,7 @@ button:hover {
 
 /* Start prices */
 #prices {
-    width: 1440px;
+    max-width: 1440px;
     height: 560px;
     background-color: #FFFFFF;
     background-size: 100%;
@@ -516,7 +518,7 @@ button:hover {
 /* Start contacts */
 
 #contacts {
-    width: 1440px;
+    max-width: 1440px;
     height: 550px;
     background: #EDF2EC;
     background-size: 100%;
@@ -632,7 +634,7 @@ button:hover {
 /* Start footer */
 .footer {
     height: 130px;
-    width: 1440px;
+    max-width: 1440px;
     left: 0px;
     top: 3740px;
     border-radius: 0px;
@@ -713,7 +715,7 @@ button:hover {
     }
 
     #welcome {
-        width: 768px;
+        max-width: 768px;
         height: 420px;
     }
 
@@ -727,20 +729,19 @@ button:hover {
     .paragraf {
         font-size: 16px;
         line-height: 25px;
-        width: 350px;
+        max-width: 350px;
         padding-left: 5px;
         margin-bottom: 37px;
     }
 
     .img-welcome {
-      /*  width: 283px;
-        height: 260px;*/
-        margin-top: 44px;
+        width: 42%;
+        margin-top: 19px;
         order: 1;
     }
 
     #about {
-        width: 768px;
+        max-width: 768px;
         height: 783px;
     }
 
@@ -764,9 +765,7 @@ button:hover {
     }
 
     .img_house_plant {
-        width: 250px;
-        height: 295px;
-        margin-top: 70px;
+        margin-top: 47px;
     }
 
     .about_container {
@@ -775,17 +774,18 @@ button:hover {
     }
 
     #service {
-        width: 768px;
+        max-width: 768px;
         height: 1780px;
     }
 
     .serviceUp {
+        max-width: 680px;
         margin-top: 29px;
     }
 
     .service_content {
         padding-top: 10px;
-        width: 560px;
+        max-width: 560px;
         flex-wrap: wrap;
         height: 89px;
         align-content: space-between;
@@ -822,7 +822,7 @@ button:hover {
     }
 
     #prices {
-        width: 768px;
+        max-width: 768px;
         height: 585px;
     }
 
@@ -846,7 +846,7 @@ button:hover {
     }
 
     #contacts {
-        width: 768px;
+        max-width: 768px;
         height: 739px;
     }
 
@@ -876,7 +876,7 @@ button:hover {
     }
 
     .footer {
-        width: 768px;
+        max-width: 768px;
         height: 181px;
     }
 
@@ -929,34 +929,34 @@ button:hover {
     }
 
     #welcome {
-        width: 380px;
+        max-width: 380px;
         height: 300px;
     }
 
     #about {
-        width: 380px;
+        max-width: 380px;
         height: 516px;
     }
 
     #service {
-        width: 380px;
+        max-width: 380px;
         height: 3150px;
         padding-top: 17px;
     }
 
     #prices {
-        width: 380px;
+        max-width: 380px;
         height: 512px;
     }
 
     #contacts {
-        width: 380px;
+        max-width: 380px;
         height: 445px;
         margin-top: 14px;
     }
 
     .footer {
-        width: 380px;
+        max-width: 380px;
         height: 146px;
     }
 
@@ -1006,6 +1006,7 @@ button:hover {
         line-height: 33px;
         width: 270px;
         margin-bottom: 0px;
+        margin-right: 60px;
     }
 
     .service_button {
