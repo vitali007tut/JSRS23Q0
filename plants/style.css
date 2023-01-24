@@ -58,7 +58,7 @@ html {
 }
 
 .wrapper {
-    width: 1222px;
+    max-width: 1222px;
     margin: 0 auto;
 }
 
@@ -68,7 +68,7 @@ body {
 }
 
 .header {
-    width: 1440px;
+    max-width: 1440px;
     height: 134px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -118,7 +118,7 @@ body {
 .nav-list {
     margin: 0;
     padding-left: 0;
-    width: 450px;
+    max-width: 450px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -146,7 +146,7 @@ a {
 /* Start Welcome */
 
 #welcome {
-    width: 1440px;
+    max-width: 1440px;
     height: 532px;
     background-color: #EDF2EC;
     background-size: 100%;
@@ -158,19 +158,20 @@ a {
 }
 
 .welcome_right {
-    width: 549px;
-    height: 340px;
+    max-width: 549px;
+    max-height: 340px;
     padding-top: 98px;
 }
 
 .img-welcome {
-    width: 448.8px;
-    height: 407.36px;
+    width: 37%;
+    /*width: 448.8px;*/
+  /*  max-height: 407.36px; */
     margin-top: 62px;
 }
 
 .capText {
-    width: 549px;
+    max-width: 549px;
     font-family: 'Inter';
     font-size: 45px;
     font-weight: 700;
@@ -702,12 +703,12 @@ button:hover {
 @media (max-width: 768px) {
 
     .header {
-        width: 768px;
+        max-width: 768px;
         height: 117px;
     }
 
     .wrapper {
-        width: 668px;
+        max-width: 668px;
         margin: 0 auto;
     }
 
@@ -732,8 +733,8 @@ button:hover {
     }
 
     .img-welcome {
-        width: 283px;
-        height: 260px;
+      /*  width: 283px;
+        height: 260px;*/
         margin-top: 44px;
         order: 1;
     }
@@ -907,7 +908,7 @@ button:hover {
 
 @media (max-width: 380px) {
     .header {
-        width: 380px;
+        max-width: 380px;
         height: 96px;
     }
 
@@ -960,7 +961,7 @@ button:hover {
     }
 
     .wrapper {
-        width: 330px;
+        max-width: 330px;
     }
 
     .capText {
