@@ -166,7 +166,7 @@ a {
 .img-welcome {
     width: 37%;
     /*width: 448.8px;*/
-  /*  max-height: 407.36px; */
+    /*  max-height: 407.36px; */
     margin-top: 62px;
 }
 
@@ -235,12 +235,12 @@ button:hover {
 }
 
 .about_text_left {
-  /*  width: 605px; */
+    /*  width: 605px; */
     min-height: 350px;
 }
 
 .img_house_plant {
-   /* height: 542px;
+    /* height: 542px;
     width: 464px;*/
     width: 38%;
     margin-top: 61px;
@@ -915,12 +915,15 @@ button:hover {
     .nav {
         position: fixed;
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        right: 0;
+        width: 35vh;
+        height: 40vh;
         background: #C1E698;
-        transform: translateX(-100%);
+        transform: translateY(-100%);
         transition: transform 0.5s;
+        border: solid;
+        border-radius: 30px;
+        border-color: #E06733;
     }
 
     .nav-list {
@@ -1087,7 +1090,8 @@ button:hover {
     .dropdown-content {
         width: 300px;
     }
-    .dropdown-content a{
+
+    .dropdown-content a {
         width: 260px;
     }
 
@@ -1193,6 +1197,7 @@ button:hover {
         justify-content: center;
         padding: 0;
     }
+
 }
 
 #img_burger.active {

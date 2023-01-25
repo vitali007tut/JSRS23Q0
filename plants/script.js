@@ -8,6 +8,11 @@ menuBtn.addEventListener('click', function(){
 
 
 const buttons = document.querySelectorAll('.link');
+const section = document.querySelectorAll('section')
+
+section.forEach((button) => {
+  button.addEventListener('click', handleClick);
+})
 
 function handleClick() {
     menuBtn.classList.remove('active');
@@ -18,4 +23,4 @@ buttons.forEach((button) => {
     button.addEventListener('click', handleClick);
   });
 
-  console.log('1. 24\n2. 24\n3. 10\n4. 20')
+  console.log('1. 24\n2. 24\n3. 10\n4. 24')
