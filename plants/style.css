@@ -1111,7 +1111,8 @@ button:hover {
         display: block;
         margin-top: 48px;
 
-        position: relative;
+        margin-left: 80%;
+        position: fixed;
         z-index: 2;
         overflow: hidden;
     }
