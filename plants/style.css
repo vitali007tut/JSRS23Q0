@@ -213,8 +213,9 @@ a {
 }
 
 button:hover {
-    color: #FFFFFF;
+    color: white;
     background: #E06733;
+    opacity: 0.8;
     border: 2px solid #E06733;
 }
 
@@ -1208,4 +1209,18 @@ button:hover {
 
 .nav.active {
     transform: translateX(0);
+}
+
+/*************part 3*****************/
+/************services****************/
+.blur {
+    filter: blur(2px);
+    transition: filter 1s linear;
+}
+.activeService {
+    background: #E06733;
+    color: #FFFFFF;
+}
+.activeService:hover {
+    opacity: 1;
 }
