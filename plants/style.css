@@ -1226,3 +1226,21 @@ button:hover {
 .activeService:hover {
     opacity: 1;
 }
+
+/**************Start prices***********************/
+.openedPrice{
+    max-width: 250px;
+    background: #D6E7D2;
+    border-radius: 20px;
+}
+.openedPrice h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.openedPrice button {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+}
