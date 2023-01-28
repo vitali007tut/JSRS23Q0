@@ -505,16 +505,7 @@ button:hover {
     line-height: 20px;
     font-family: 'Inter';
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.img_arrow_in_prices {
-    background-image: url(./img/svg/accordion_btn.svg);
-    width: 16px;
-    height: 16px;
-    display: block;
+    padding: 16px 40px;
 }
 
 /* Start contacts */
@@ -1232,21 +1223,14 @@ button:hover {
 /**************Start prices***********************/
 .openedPrice {
     max-width: 250px;
-    height: 154px;
+    height: 104px;
     background: #D6E7D2;
-    border-radius:0 0 20px 20px;
-    padding: 16px 12% 12px;
-}
+    border-radius: 0 0 20px 20px;
+    padding: 0 12%;
 
-.openedPrice h4 {
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 20px;
-    border-bottom: 0.5px solid #AEA1A1;
-    margin: 0;
-    color: #000000;
-    padding-bottom: 12px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
 }
 
 .openedPrice p:nth-of-type(1) {
@@ -1254,7 +1238,9 @@ button:hover {
     font-size: 10px;
     line-height: 10px;
     color: #717171;
-    margin: 6px 0;
+    margin: 0;
+    border-top: 0.5px solid #AEA1A1;
+    padding-top: 6px;
 }
 
 .openedPrice p:nth-of-type(2) {
@@ -1276,8 +1262,16 @@ button:hover {
     height: 25px;
 }
 
-.openedTitle{
+.openedTitle {
     border-radius: 20px 20px 0 0;
     background: #D6E7D2;
-    border-bottom: 0.5px solid #AEA1A1;
+}
+
+.prices_dropdown:after {
+    content: url(./img/svg/accordion_btn.svg);
+    float: right;
+}
+
+.openedTitle:after {
+    content: url(./img/svg/drop_btn_hover.svg);
 }

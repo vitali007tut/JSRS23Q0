@@ -74,13 +74,26 @@ serviceButtons[2].addEventListener('click', () => {
 })
 
 // part 3 prices 
-/*
-var elem = document.querySelector("#gardens")
-var elemLawn = document.querySelector('#lawn')
-var elemPlant = document.querySelector('#planting')
-*/
 
+var acc = document.getElementsByClassName("prices_dropdown");
+var i;
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
 
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      document.querySelectorAll('.openedPrice').forEach((el) => el.style.maxHeight = null)
+      document.querySelectorAll('.prices_dropdown').forEach((el) => el.classList.remove('openedTitle'))
+    } else {
+      document.querySelectorAll('.openedPrice').forEach((el) => el.style.maxHeight = null)
+      document.querySelectorAll('.prices_dropdown').forEach((el) => el.classList.remove('openedTitle'))
+      this.classList.add('openedTitle')
+      panel.style.maxHeight = 110 +'px'
+    }
+  })
+}
+
+// part 3 -- contacts 
 
 
 
