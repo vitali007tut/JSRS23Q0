@@ -95,5 +95,23 @@ for (i = 0; i < acc.length; i++) {
 
 // part 3 -- contacts 
 
+const buttonCity = document.querySelector('.dropbtn')
+const selectItem = document.querySelectorAll('.select_item')
+
+buttonCity.addEventListener('click', () => {
+  buttonCity.classList.toggle('openedCity')
+  buttonCity.parentElement.classList.toggle('isActive')
+  //document.querySelector('.dropdown').classList.toggle('isActive')
+}
+)
+
+selectItem.forEach(item => item.addEventListener('click', selectChoose))
+
+function selectChoose() {
+let text = this.innerText;
+currentText = this.closest('.dropdown').querySelector('.dropbtn')
+currentText.innerText = text
+this.closest('.dropdown').classList.remove('isActive')
+}
 
 

@@ -550,14 +550,13 @@ button:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0px;
     font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 40px;
     display: block;
     padding-left: 20px;
-    padding-top: 5px;
-
+    padding: 5px 35px 5px 20px;
+    color: #717171;
 }
 
 .dropdown {
@@ -573,14 +572,12 @@ button:hover {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
     background-color: #DCE9D9;
 
 }
 
-.dropdown-content a {
+.select_item {
     width: 380px;
     color: #499A18;
     background-color: #DCE9D9;
@@ -595,32 +592,27 @@ button:hover {
     text-decoration: none;
 }
 
-.dropdown-content a:hover {
+.select_item:hover {
     color: #717171;
     border-bottom: 1px solid #717171;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown.isActive .dropdown-content {
     box-shadow: none;
     display: block;
 }
-
-.dropdown:hover .dropbtn {
+.dropbtn:after {
+    content: url(./img/svg/accordion_btn.svg);
+    float: right;
+}
+.dropbtn:hover, .openedCity {
     background: #C1E698;
-    box-shadow: none;
-
+    border: 1px solid #D6E7D2;
+    border-radius: 0px;
+    box-shadow: none; 
 }
-
-.img_arrow_in_city {
-    margin-left: 341px;
-    background: url(./img/svg/accordion_btn.svg) no-repeat;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-}
-
-.img_arrow_in_city:hover {
-    background: url(./img/svg/drop_btn_hover.svg) no-repeat;
+.dropbtn:hover::after{
+    content: url(./img/svg/drop_btn_hover.svg);
 }
 
 
@@ -1274,4 +1266,48 @@ button:hover {
 
 .openedTitle:after {
     content: url(./img/svg/drop_btn_hover.svg);
+}
+
+/*************part 3 adresses***************************/
+
+.adresses {
+    display: flex;
+    max-width: 448px;
+    height: 214px;
+    background: #EDF2EC;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    font-family: 'Inter';
+    font-size: 16px;
+    line-height: 40px;
+    padding-left: 35px;
+    padding-top: 17px;
+    margin-top: 47px;
+    visibility:hidden;
+}
+
+.right_adress {
+    margin-left: 20px;
+    color: #717171;
+}
+
+.adresses p {
+    margin: 0;
+}
+
+.adresses button {
+    width: 122px;
+    height: 26px;
+    border: 1px solid #E06733;
+    border-radius: 5px;
+    font-family: 'Inika';
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: center;
+    color: #717171;
+}
+
+.adresses.yonkers {
+    visibility: visible;
 }
