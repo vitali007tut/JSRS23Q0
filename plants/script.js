@@ -23,7 +23,6 @@ buttons.forEach((button) => {
   button.addEventListener('click', handleClick);
 });
 
-//console.log('1. 24\n2. 24\n3. 10\n4. 24')
 // part 3 service
 
 const serviceButtons = document.querySelectorAll('.service_button')
@@ -134,5 +133,5 @@ function selectChoose() {
   }
 }
 
-
+console.log('Plants#3\n1.service 50\n2.prices 50\n3.contacts 25')
 
