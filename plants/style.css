@@ -601,17 +601,21 @@ button:hover {
     box-shadow: none;
     display: block;
 }
+
 .dropbtn:after {
     content: url(./img/svg/accordion_btn.svg);
     float: right;
 }
-.dropbtn:hover, .openedCity {
+
+.dropbtn:hover,
+.openedCity {
     background: #C1E698;
     border: 1px solid #D6E7D2;
     border-radius: 0px;
-    box-shadow: none; 
+    box-shadow: none;
 }
-.dropbtn:hover::after{
+
+.dropbtn:hover::after {
     content: url(./img/svg/drop_btn_hover.svg);
 }
 
@@ -1271,7 +1275,7 @@ button:hover {
 /*************part 3 adresses***************************/
 
 .adresses {
-    display: flex;
+    display: none;
     max-width: 448px;
     height: 214px;
     background: #EDF2EC;
@@ -1283,7 +1287,7 @@ button:hover {
     padding-left: 35px;
     padding-top: 17px;
     margin-top: 47px;
-    visibility:hidden;
+
 }
 
 .right_adress {
@@ -1308,6 +1312,6 @@ button:hover {
     color: #717171;
 }
 
-.adresses.yonkers {
-    visibility: visible;
+.activeAdress {
+    display: flex;
 }

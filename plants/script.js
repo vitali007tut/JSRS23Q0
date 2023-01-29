@@ -78,7 +78,7 @@ serviceButtons[2].addEventListener('click', () => {
 var acc = document.getElementsByClassName("prices_dropdown");
 var i;
 for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
+  acc[i].addEventListener("click", function () {
 
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
@@ -88,7 +88,7 @@ for (i = 0; i < acc.length; i++) {
       document.querySelectorAll('.openedPrice').forEach((el) => el.style.maxHeight = null)
       document.querySelectorAll('.prices_dropdown').forEach((el) => el.classList.remove('openedTitle'))
       this.classList.add('openedTitle')
-      panel.style.maxHeight = 110 +'px'
+      panel.style.maxHeight = 110 + 'px'
     }
   })
 }
@@ -108,10 +108,31 @@ buttonCity.addEventListener('click', () => {
 selectItem.forEach(item => item.addEventListener('click', selectChoose))
 
 function selectChoose() {
-let text = this.innerText;
-currentText = this.closest('.dropdown').querySelector('.dropbtn')
-currentText.innerText = text
-this.closest('.dropdown').classList.remove('isActive')
+  let text = this.innerText;
+  currentText = this.closest('.dropdown').querySelector('.dropbtn')
+  currentText.innerText = text
+  this.closest('.dropdown').classList.remove('isActive')
+  const adresses = document.querySelectorAll('.adresses')
+
+  switch (buttonCity.innerText) {
+    case 'Yonkers, NY': 
+      adresses.forEach((el) => el.classList.remove('activeAdress'))
+      document.querySelector('.yonkers').classList.add('activeAdress')
+      break;
+    case 'Canandaigua, NY': 
+    adresses.forEach((el) => el.classList.remove('activeAdress'))
+    document.querySelector('.canandaigua').classList.add('activeAdress')
+      break;
+    case 'Sherrill, NY': 
+    adresses.forEach((el) => el.classList.remove('activeAdress'))
+    document.querySelector('.sherrill').classList.add('activeAdress')
+      break;
+    case 'New York City': 
+    adresses.forEach((el) => el.classList.remove('activeAdress'))
+    document.querySelector('.newYork').classList.add('activeAdress')
+      break;
+  }
 }
+
 
 
