@@ -49,6 +49,28 @@ window.addEventListener('load', getLocalStorage)
 // заполняю placeholder
 document.querySelector('input.name').placeholder = '[Enter your name]'
 
+// 3. Слайдер изображений
+
+function getRandomNum() {
+    return Math.floor(Math.random() * 20) + 1
+}
+
+function setBg() {
+    const date = new Date()
+    const timeOfDay = getTimeOfDay(date.getHours())
+    const bgNum = getRandomNum().toString().padStart(2, '0')
+    const imgString = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`
+    document.body.style.backgroundImage = `url(${imgString})`
+}
+
+function getSlideNext() {
+
+}
+
+function getSlidePrev() {
+    
+}
+    
 
 
 
@@ -57,8 +79,7 @@ document.querySelector('input.name').placeholder = '[Enter your name]'
 
 
 
-
-console.log(`Self marks:
+/* console.log(`Self marks:
     1. Часы и календарь +15
     2. Приветствие +10
     3. Слайдер изображений
@@ -68,4 +89,4 @@ console.log(`Self marks:
     7. Продвинутый аудиоплеер
     8. Перевод приложения
     9. Получение фонового изображения от API
-    10. Настройки приложения`)
+    10. Настройки приложения`) */
