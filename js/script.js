@@ -2,18 +2,25 @@
 const time = document.querySelector('.time')
 const dateCurrent = document.querySelector('.date')
 const greet = document.querySelector('.greeting')
+let randomNum
+const slideNext = document.querySelector('.slide-next')
+const slidePrev = document.querySelector('.slide-prev')
+let date
+let timeOfDay
+let hours
 
 function showTime() {
-    const date = new Date()
+    date = new Date()
+    hours = date.getHours()
+    timeOfDay = getTimeOfDay(hours)
     time.textContent = date.toLocaleTimeString()
     showDate()
-    showGreeting(date.getHours())
+    showGreeting(hours)
     setTimeout(showTime, 1000)
 }
 showTime()
 
 function showDate() {
-    const date = new Date()
     const options = { weekday: 'long', month: 'long', day: 'numeric' }
     dateCurrent.textContent = date.toLocaleDateString('en-US', options)
 }
@@ -52,25 +59,37 @@ document.querySelector('input.name').placeholder = '[Enter your name]'
 // 3. Слайдер изображений
 
 function getRandomNum() {
-    return Math.floor(Math.random() * 20) + 1
+    randomNum = Math.floor(Math.random() * 20) + 1
+    return randomNum
 }
 
 function setBg() {
-    const date = new Date()
-    const timeOfDay = getTimeOfDay(date.getHours())
-    const bgNum = getRandomNum().toString().padStart(2, '0')
-    const imgString = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`
-    document.body.style.backgroundImage = `url(${imgString})`
+    randomNum = randomNum.toString().padStart(2, '0')
+    const img = new Image()
+    img.src = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum}.jpg`
+    img.onload = () => {
+        document.body.style.backgroundImage = `url(${img.src})`
+    }
 }
+getRandomNum()
+setBg()
 
 function getSlideNext() {
-
+    randomNum++
+    randomNum = randomNum === 21 ? 1 : randomNum
+    setBg()
 }
 
 function getSlidePrev() {
-    
+    randomNum--
+    randomNum = randomNum === 0 ? 20 : randomNum
+    setBg()
 }
-    
+
+slideNext.addEventListener('click', getSlideNext)
+slidePrev.addEventListener('click', getSlidePrev)
+
+// 4. Виджет погоды
 
 
 
@@ -82,7 +101,7 @@ function getSlidePrev() {
 /* console.log(`Self marks:
     1. Часы и календарь +15
     2. Приветствие +10
-    3. Слайдер изображений
+    3. Слайдер изображений +20
     4. Виджет погоды
     5. Виджет "цитата дня"
     6. Аудиоплеер
