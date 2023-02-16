@@ -8,8 +8,8 @@ const slidePrev = document.querySelector('.slide-prev')
 let date
 let timeOfDay
 let hours
-const city = document.querySelector('.city')
-//city.value = 'Minsk'
+let city = document.querySelector('.city')
+city.value = 'Minsk'
 
 function showTime() {
     date = new Date()
@@ -44,7 +44,8 @@ function showGreeting(hours) {
 // set value  from localStorage
 function setLocalStorage() {
     localStorage.setItem('name', document.querySelector('input.name').value);
-    localStorage.setItem('city', document.querySelector('.city').value)
+    city.value = city.value === '' ? 'Minsk' : city.value
+    localStorage.setItem('city', city.value)
 }
 window.addEventListener('beforeunload', setLocalStorage)
 
@@ -53,7 +54,7 @@ function getLocalStorage() {
     if (localStorage.getItem('name')) {
         document.querySelector('input.name').value = localStorage.getItem('name');
     }
-    if (localStorage.getItem('city')) {
+    if (localStorage.getItem('city') || localStorage.getItem('city') === '') {
         city.value = localStorage.getItem('city')
         getWeather()
     }
@@ -96,7 +97,7 @@ function getSlidePrev() {
 slideNext.addEventListener('click', getSlideNext)
 slidePrev.addEventListener('click', getSlidePrev)
 
-// 4. Виджет погоды
+// 4. Виджет погоды (?при перезагрузке страницы подтягивает сперва Minsk, а потом город из localStorage)
 
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature')
@@ -138,17 +139,15 @@ async function getWeather() {
 
 }
 
-function setCity(event) {
-    if (event.code === 'Enter') {
-        getWeather();
-        city.blur();
-    }
-}
+city.addEventListener('change', function() {
+    getWeather()
+})
 
-// изначальная загрузка погоды после загрузки страницы
-document.addEventListener('DOMContentLoaded', getWeather)
 
-city.addEventListener('keypress', setCity)
+// 5. Виджет "цитата дня"
+
+
+
 
 
 
@@ -160,7 +159,7 @@ city.addEventListener('keypress', setCity)
     1. Часы и календарь +15
     2. Приветствие +10
     3. Слайдер изображений +20
-    4. Виджет погоды
+    4. Виджет погоды +15
     5. Виджет "цитата дня"
     6. Аудиоплеер
     7. Продвинутый аудиоплеер
