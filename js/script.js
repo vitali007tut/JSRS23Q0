@@ -77,6 +77,7 @@ function setBg() {
     img.src = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum}.jpg`
     img.onload = () => {
         document.body.style.backgroundImage = `url(${img.src})`
+        getWeather()
     }
 }
 getRandomNum()
@@ -139,12 +140,28 @@ async function getWeather() {
 
 }
 
-city.addEventListener('change', function() {
+city.addEventListener('change', function () {
     getWeather()
 })
 
-
 // 5. Виджет "цитата дня"
+
+let quote = document.querySelector('.quote')
+let author = document.querySelector('.author')
+let changeQuote = document.querySelector('.change-quote')
+
+async function getQuotes() {
+    const quotes = 'data.json';
+    const res = await fetch(quotes);
+    const data = await res.json();
+    const index = Math.floor(Math.random()*data.length)
+    quote.textContent = data[index].q
+    author.textContent = data[index].a
+}
+getQuotes()
+changeQuote.addEventListener('click', getQuotes)
+
+// 6. Аудиоплеер
 
 
 
@@ -160,7 +177,7 @@ city.addEventListener('change', function() {
     2. Приветствие +10
     3. Слайдер изображений +20
     4. Виджет погоды +15
-    5. Виджет "цитата дня"
+    5. Виджет "цитата дня" +10
     6. Аудиоплеер
     7. Продвинутый аудиоплеер
     8. Перевод приложения
