@@ -10,6 +10,8 @@ let timeOfDay
 let hours
 let city = document.querySelector('.city')
 city.value = 'Minsk'
+let isPlay = false
+let playNum = 0
 
 function showTime() {
     date = new Date()
@@ -154,7 +156,7 @@ async function getQuotes() {
     const quotes = 'data.json';
     const res = await fetch(quotes);
     const data = await res.json();
-    const index = Math.floor(Math.random()*data.length)
+    const index = Math.floor(Math.random() * data.length)
     quote.textContent = data[index].q
     author.textContent = data[index].a
 }
@@ -163,8 +165,41 @@ changeQuote.addEventListener('click', getQuotes)
 
 // 6. Аудиоплеер
 
+import playList from './playList.js'
 
+const playBtn = document.querySelector('.play');
+const playPrevBtn = document.querySelector('.play-prev')
+const playNextBtn = document.querySelector('.play-next')
+const audio = new Audio()
+const playLength = playList.length
 
+function playAudio() {
+    if (!isPlay) {
+        audio.src = playList[playNum].src
+        audio.currentTime = 0;
+        audio.play();
+        isPlay = true
+        playBtn.classList.toggle('pause')
+    } else {
+        audio.pause()
+        isPlay = false
+        playBtn.classList.toggle('pause')
+    }
+}
+
+function playNext() {
+    playNum++
+    playNum = playNum === playLength ? 0 : playNum
+    playAudio()
+}
+function playPrev() {
+    playNum--
+    playNum = playNum === -1 ? playLength - 1 : playNum
+    playAudio()
+}
+playBtn.addEventListener('click', playAudio)
+playPrevBtn.addEventListener('click', playPrev)
+playNextBtn.addEventListener('click', playNext)
 
 
 
