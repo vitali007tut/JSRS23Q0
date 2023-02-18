@@ -1,3 +1,6 @@
+// увеличение шрифта
+document.querySelector('body').style.fontSize = '22' + 'px'
+
 // 1. Часы и календарь
 const time = document.querySelector('.time')
 const dateCurrent = document.querySelector('.date')
@@ -12,6 +15,7 @@ let city = document.querySelector('.city')
 city.value = 'Minsk'
 let isPlay = false
 let playNum = 0
+const audio = new Audio()
 
 function showTime() {
     date = new Date()
@@ -20,6 +24,7 @@ function showTime() {
     time.textContent = date.toLocaleTimeString()
     showDate()
     showGreeting(hours)
+    if (audio.ended) playNext()
     setTimeout(showTime, 1000)
 }
 showTime()
@@ -157,7 +162,7 @@ async function getQuotes() {
     const res = await fetch(quotes);
     const data = await res.json();
     const index = Math.floor(Math.random() * data.length)
-    quote.textContent = data[index].q
+    quote.textContent = `"${data[index].q}"`
     author.textContent = data[index].a
 }
 getQuotes()
@@ -170,16 +175,22 @@ import playList from './playList.js'
 const playBtn = document.querySelector('.play');
 const playPrevBtn = document.querySelector('.play-prev')
 const playNextBtn = document.querySelector('.play-next')
-const audio = new Audio()
+const activeItems = document.querySelectorAll('.play-item')
+const playItems = document.querySelectorAll('li')
+
 const playLength = playList.length
+
 
 function playAudio() {
     if (!isPlay) {
+        activeItems.forEach(item => item.classList.remove('item-active'))
         audio.src = playList[playNum].src
+        playItems[playNum].classList.add('item-active')
         audio.currentTime = 0;
         audio.play();
         isPlay = true
         playBtn.classList.toggle('pause')
+        
     } else {
         audio.pause()
         isPlay = false
@@ -190,16 +201,22 @@ function playAudio() {
 function playNext() {
     playNum++
     playNum = playNum === playLength ? 0 : playNum
+    isPlay = false
     playAudio()
 }
 function playPrev() {
     playNum--
     playNum = playNum === -1 ? playLength - 1 : playNum
+    isPlay = false
     playAudio()
 }
+
 playBtn.addEventListener('click', playAudio)
 playPrevBtn.addEventListener('click', playPrev)
 playNextBtn.addEventListener('click', playNext)
+
+// 7. Продвинутый аудиоплеер
+
 
 
 
@@ -213,7 +230,7 @@ playNextBtn.addEventListener('click', playNext)
     3. Слайдер изображений +20
     4. Виджет погоды +15
     5. Виджет "цитата дня" +10
-    6. Аудиоплеер
+    6. Аудиоплеер +15
     7. Продвинутый аудиоплеер
     8. Перевод приложения
     9. Получение фонового изображения от API
