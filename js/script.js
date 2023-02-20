@@ -1,5 +1,5 @@
 // увеличение шрифта
-document.querySelector('body').style.fontSize = '22' + 'px'
+document.querySelector('body').style.fontSize = '20' + 'px'
 
 // 1. Часы и календарь
 const time = document.querySelector('.time')
