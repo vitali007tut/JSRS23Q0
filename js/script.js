@@ -69,7 +69,7 @@ function getLocalStorage() {
 window.addEventListener('load', getLocalStorage)
 
 // заполняю placeholder
-document.querySelector('input.name').placeholder = '[Enter your name]'
+document.querySelector('input.name').placeholder;
 
 // 3. Слайдер изображений
 
@@ -217,8 +217,57 @@ playNextBtn.addEventListener('click', playNext)
 
 // 7. Продвинутый аудиоплеер
 
+// 8. Перевод приложения
 
+const langArr = {
+    "greeting" :  {
+        "English": "Привет скрипт",
+        "Русский": "Good day",
+    }, 
+    "placeholder": {
+        "English": '[Enter name]',
+        "Русский": "[Введи имя]",
+    }, 
+    "memory": {
+        "English": '[Enter name]',
+        "Русский": "[Введи имя]",
+    }, 
+    "memory-type": {
+        "English": '[Enter name]',
+        "Русский": "[Введи имя]",
+    }, 
+}
 
+const langButtons = document.querySelectorAll('.lang')
+
+langButtons.forEach(e => {
+    e.addEventListener('click' , () => {
+        if (e.classList.contains('langActive')) {
+            langButtons.forEach(elem => elem.classList.add('langActive'))
+            e.classList.remove('langActive')
+        } else {
+            langButtons.forEach(elem => elem.classList.remove('langActive'))
+            e.classList.add('langActive')
+        }
+        changeLanguage()
+    })
+})
+
+function changeLanguage() {
+    let lang = document.querySelector('.langActive').textContent
+    console.log(lang)
+    document.querySelector('input.name').placeholder = langArr['placeholder'][lang]
+    for (let key in langArr) {
+       //console.log(key)
+        let elem = document.querySelector(`.${key}`);
+        console.log(elem)
+        if (elem) {
+            elem.innerHTML = langArr[key][lang];
+        }
+    }
+}
+
+changeLanguage();
 
 
 

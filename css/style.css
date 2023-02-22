@@ -423,3 +423,16 @@ body {
   background-size: 40px 40px;
   background-image: url("../assets/svg/play.svg");
 }
+
+.lang {
+  opacity: 0.7;
+  padding: 7px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+}
+.lang.langActive{
+  opacity: 1;
+  color: #0967d6;
+  font-weight: 700;
+}
