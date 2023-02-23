@@ -1,3 +1,51 @@
+
+const langArr = {
+    "greeting" :  {
+        "English": "Привет скрипт",
+        "Русский": "Good day",
+    }, 
+    "placeholder": {
+        "English": '[Enter name]',
+        "Русский": "[Введи имя]",
+    }, 
+    "placeholder-city": {
+        "English": '[Enter city]',
+        "Русский": "[Введи город]",
+    }, 
+    "url": {
+     //   "English": `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=e3c0174eab562c282118d28ef2a476cd&units=metric`,
+     //   "Русский": `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=e3c0174eab562c282118d28ef2a476cd&units=metric`,
+    }, 
+    "weatherError": {
+        "English": `Error! Nothing to geocode for ''!`,
+        "Русский": `Ошибка! Нет информации по городу ''!`,
+    }, 
+    "weatherError404": {
+     //   "English": `Error! City not found for '${city.value}'!`,
+     //   "Русский": `Ошибка! Город '${city.value}' не найден!`,
+    }, 
+    "humidity": {
+        "English": 'Humidity: ',
+        "Русский": "Влажность: ",
+    }, 
+    "wind": {
+        "English": ['Wind speed: ', 'm/s'],
+        "Русский": ["Скорость ветра: ", 'м/с'],
+    }, 
+    "quote": {
+        "English": 'data.json',
+        "Русский": 'dataRu.json',
+    }, 
+    "wind": {
+        "English": ['Wind speed: ', 'm/s'],
+        "Русский": ["Скорость ветра: ", 'м/с'],
+    }, 
+    "wind": {
+        "English": ['Wind speed: ', 'm/s'],
+        "Русский": ["Скорость ветра: ", 'м/с'],
+    }, 
+}
+
 // увеличение шрифта
 document.querySelector('body').style.fontSize = '20' + 'px'
 
@@ -16,6 +64,7 @@ city.value = 'Minsk'
 let isPlay = false
 let playNum = 0
 const audio = new Audio()
+let lang = 'English'
 
 function showTime() {
     date = new Date()
@@ -157,13 +206,15 @@ let quote = document.querySelector('.quote')
 let author = document.querySelector('.author')
 let changeQuote = document.querySelector('.change-quote')
 
-async function getQuotes() {
-    const quotes = 'data.json';
+
+async function getQuotes() { 
+    const quotes = langArr.quote[lang]
+    //const quotes = 'dataRu.json'
     const res = await fetch(quotes);
     const data = await res.json();
     const index = Math.floor(Math.random() * data.length)
-    quote.textContent = `"${data[index].q}"`
-    author.textContent = data[index].a
+    quote.textContent = `"${data[index].quote}"`
+    author.textContent = data[index].author
 }
 getQuotes()
 changeQuote.addEventListener('click', getQuotes)
@@ -219,45 +270,13 @@ playNextBtn.addEventListener('click', playNext)
 
 // 8. Перевод приложения
 
-const langArr = {
-    "greeting" :  {
-        "English": "Привет скрипт",
-        "Русский": "Good day",
-    }, 
-    "placeholder": {
-        "English": '[Enter name]',
-        "Русский": "[Введи имя]",
-    }, 
-    "placeholder-city": {
-        "English": '[Enter city]',
-        "Русский": "[Введи город]",
-    }, 
-    "url": {
-     //   "English": `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=e3c0174eab562c282118d28ef2a476cd&units=metric`,
-     //   "Русский": `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=e3c0174eab562c282118d28ef2a476cd&units=metric`,
-    }, 
-    "weatherError": {
-        "English": `Error! Nothing to geocode for ''!`,
-        "Русский": `Ошибка! Нет информации по городу ''!`,
-    }, 
-    "weatherError404": {
-     //   "English": `Error! City not found for '${city.value}'!`,
-     //   "Русский": `Ошибка! Город '${city.value}' не найден!`,
-    }, 
-    "humidity": {
-        "English": 'Humidity: ',
-        "Русский": "Влажность: ",
-    }, 
-    "wind": {
-        "English": ['Wind speed: ', 'm/s'],
-        "Русский": ["Скорость ветра: ", 'м/с'],
-    }, 
-}
+
 
 const langButtons = document.querySelectorAll('.lang')
 
 langButtons.forEach(e => {
     e.addEventListener('click' , () => {
+
         if (e.classList.contains('langActive')) {
             langButtons.forEach(elem => elem.classList.add('langActive'))
             e.classList.remove('langActive')
@@ -265,14 +284,18 @@ langButtons.forEach(e => {
             langButtons.forEach(elem => elem.classList.remove('langActive'))
             e.classList.add('langActive')
         }
+
+        lang = document.querySelector('.langActive').textContent
         changeLanguage()
     })
 })
 
 function changeLanguage() {
-    let lang = document.querySelector('.langActive').textContent
-    console.log(lang)
+    
+
     document.querySelector('input.name').placeholder = langArr['placeholder'][lang]
+    getQuotes()
+
     for (let key in langArr) {
        //console.log(key)
         let elem = document.querySelector(`.${key}`);
