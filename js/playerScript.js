@@ -8,7 +8,7 @@ const progressContaner = document.querySelector('.progress_contaner')
 const progress = document.querySelector('.progress')
 const title = document.querySelector('.song')
 let isPlaying
-const songs = ['A Sense Of Symmetry', 'Elegy For The Arctic', 'High Heels', 'Le Onde', 'The Earth Prelude', 'Walk']
+const songs = ['Elegy For The Arctic', 'High Heels', 'Le Onde', 'The Earth Prelude', 'Walk']
 // set custom playList
 songs.forEach(el => {
     const li = document.createElement('li')

@@ -1,28 +1,24 @@
 
 const langArr = {
-    "!!!" :  {
-        "English": "Привет скрипт",
-        "Русский": "Good day",
-    }, 
     "placeholder": {
         "English": '[Enter name]',
         "Русский": "[Введи имя]",
-    }, 
+    },
     "placeholder-city": {
         "English": '[Enter city]',
         "Русский": "[Введи город]",
-    }, 
+    },
     "url": {
-     //   "English": `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=e3c0174eab562c282118d28ef2a476cd&units=metric`,
-     //   "Русский": `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=e3c0174eab562c282118d28ef2a476cd&units=metric`,
+        "English": ['https://api.openweathermap.org/data/2.5/weather?q=', '&lang=en&appid=e3c0174eab562c282118d28ef2a476cd&units=metric'],
+        "Русский": ['https://api.openweathermap.org/data/2.5/weather?q=', '&lang=ru&appid=e3c0174eab562c282118d28ef2a476cd&units=metric']
     }, 
     "weatherError": {
         "English": `Error! Nothing to geocode for ''!`,
         "Русский": `Ошибка! Нет информации по городу ''!`,
     }, 
     "weatherError404": {
-     //   "English": `Error! City not found for '${city.value}'!`,
-     //   "Русский": `Ошибка! Город '${city.value}' не найден!`,
+        "English": `Error! City not found for `,
+        "Русский": `Ошибка! Не найден город `,
     }, 
     "humidity": {
         "English": 'Humidity: ',
@@ -92,7 +88,7 @@ function getTimeOfDay(hours) {
 }
 function showGreeting(hours) {
     const timeOfDay = getTimeOfDay(hours)
-    const greetingText = `${langArr.greeting[lang][0]} ${timeOfDay} `
+    const greetingText = `${ langArr.greeting[lang][0] } ${ timeOfDay } `
     greet.textContent = greetingText
 }
 
@@ -118,7 +114,7 @@ function getLocalStorage() {
 window.addEventListener('load', getLocalStorage)
 
 // заполняю placeholder
-document.querySelector('input.name').placeholder;
+//document.querySelector('input.name').placeholder;
 
 // 3. Слайдер изображений
 
@@ -131,10 +127,10 @@ function setBg() {
     randomNum = randomNum.toString().padStart(2, '0')
     const img = new Image()
     img.src = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum}.jpg`
-    img.onload = () => {
-        document.body.style.backgroundImage = `url(${img.src})`
-        getWeather()
-    }
+img.onload = () => {
+    document.body.style.backgroundImage = `url(${img.src})`
+    getWeather()
+}
 }
 getRandomNum()
 setBg()
@@ -163,10 +159,8 @@ const wind = document.querySelector('.wind')
 const humidity = document.querySelector('.humidity')
 const weatherDescription = document.querySelector('.weather-description')
 
-city.placeholder = `[Enter city]`
-
 async function getWeather() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=e3c0174eab562c282118d28ef2a476cd&units=metric`;
+    const url = langArr.url[lang][0] + city.value + langArr.url[lang][1]
     const res = await fetch(url);
     const data = await res.json();
 
@@ -176,20 +170,20 @@ async function getWeather() {
         wind.textContent = null
         humidity.textContent = null
         weatherDescription.textContent = null
-        weatherError.textContent = `Error! City not found for '${city.value}'!`
+        weatherError.textContent = langArr.weatherError404[lang] + `'${city.value}' !`
     } else if (city.value === '') {
         weatherIcon.className = 'weather-icon owf'
         temperature.textContent = null
         wind.textContent = null
         humidity.textContent = null
         weatherDescription.textContent = null
-        weatherError.textContent = `Error! Nothing to geocode for ''!`
+        weatherError.textContent = langArr.weatherError[lang]
     } else {
         weatherIcon.className = 'weather-icon owf';
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = `${data.main.temp.toFixed(0)}°C`
-        wind.textContent = `Wind speed: ${data.wind.speed.toFixed(0)} m/s`
-        humidity.textContent = `Humidity: ${data.main.humidity}%`
+        wind.textContent = langArr.wind[lang][0] + data.wind.speed.toFixed(0) + langArr.wind[lang][1]
+        humidity.textContent = langArr.humidity[lang] + data.main.humidity + '%'
         weatherDescription.textContent = data.weather[0].description;
         weatherError.textContent = null
     }
@@ -206,10 +200,8 @@ let quote = document.querySelector('.quote')
 let author = document.querySelector('.author')
 let changeQuote = document.querySelector('.change-quote')
 
-
-async function getQuotes() { 
+async function getQuotes() {
     const quotes = langArr.quote[lang]
-    //const quotes = 'dataRu.json'
     const res = await fetch(quotes);
     const data = await res.json();
     const index = Math.floor(Math.random() * data.length)
@@ -241,7 +233,7 @@ function playAudio() {
         audio.play();
         isPlay = true
         playBtn.classList.toggle('pause')
-        
+
     } else {
         audio.pause()
         isPlay = false
@@ -270,12 +262,10 @@ playNextBtn.addEventListener('click', playNext)
 
 // 8. Перевод приложения
 
-
-
 const langButtons = document.querySelectorAll('.lang')
 
 langButtons.forEach(e => {
-    e.addEventListener('click' , () => {
+    e.addEventListener('click', () => {
 
         if (e.classList.contains('langActive')) {
             langButtons.forEach(elem => elem.classList.add('langActive'))
@@ -291,15 +281,14 @@ langButtons.forEach(e => {
 })
 
 function changeLanguage() {
-    
-
     document.querySelector('input.name').placeholder = langArr['placeholder'][lang]
+    city.placeholder = langArr['placeholder-city'][lang]
     getQuotes()
+    getWeather()
 
     for (let key in langArr) {
-       //console.log(key)
+        //console.log(key)
         let elem = document.querySelector(`.${key}`);
-        console.log(elem)
         if (elem) {
             elem.innerHTML = langArr[key][lang];
         }
