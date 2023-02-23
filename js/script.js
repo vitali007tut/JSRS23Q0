@@ -1,6 +1,6 @@
 
 const langArr = {
-    "greeting" :  {
+    "!!!" :  {
         "English": "Привет скрипт",
         "Русский": "Good day",
     }, 
@@ -36,13 +36,13 @@ const langArr = {
         "English": 'data.json',
         "Русский": 'dataRu.json',
     }, 
-    "wind": {
-        "English": ['Wind speed: ', 'm/s'],
-        "Русский": ["Скорость ветра: ", 'м/с'],
+    "date": {
+        "English": 'en',
+        "Русский": 'ru',
     }, 
-    "wind": {
-        "English": ['Wind speed: ', 'm/s'],
-        "Русский": ["Скорость ветра: ", 'м/с'],
+    "greeting": {
+        "English": ['Good', 'morning', 'afternoon', 'evening', 'night'],
+        "Русский": ["Хорошего", 'утра', 'дня', 'вечера', 'сна'],
     }, 
 }
 
@@ -80,19 +80,19 @@ showTime()
 
 function showDate() {
     const options = { weekday: 'long', month: 'long', day: 'numeric' }
-    dateCurrent.textContent = date.toLocaleDateString('en-US', options)
+    dateCurrent.textContent = date.toLocaleDateString(`${langArr.date[lang]}-US`, options)
 }
 
 // 2. Приветствие
 function getTimeOfDay(hours) {
-    if (hours >= 6 && hours < 12) return 'morning'
-    else if (hours >= 12 && hours < 18) return 'afternoon'
-    else if (hours >= 18 && hours < 24) return 'evening'
-    else return 'night'
+    if (hours >= 6 && hours < 12) return langArr.greeting[lang][1]
+    else if (hours >= 12 && hours < 18) return langArr.greeting[lang][2]
+    else if (hours >= 18 && hours < 24) return langArr.greeting[lang][3]
+    else return langArr.greeting[lang][4]
 }
 function showGreeting(hours) {
     const timeOfDay = getTimeOfDay(hours)
-    const greetingText = `Good ${timeOfDay} `
+    const greetingText = `${langArr.greeting[lang][0]} ${timeOfDay} `
     greet.textContent = greetingText
 }
 
