@@ -228,13 +228,29 @@ const langArr = {
         "English": '[Enter name]',
         "Русский": "[Введи имя]",
     }, 
-    "memory": {
-        "English": '[Enter name]',
-        "Русский": "[Введи имя]",
+    "placeholder-city": {
+        "English": '[Enter city]',
+        "Русский": "[Введи город]",
     }, 
-    "memory-type": {
-        "English": '[Enter name]',
-        "Русский": "[Введи имя]",
+    "url": {
+     //   "English": `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=e3c0174eab562c282118d28ef2a476cd&units=metric`,
+     //   "Русский": `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=e3c0174eab562c282118d28ef2a476cd&units=metric`,
+    }, 
+    "weatherError": {
+        "English": `Error! Nothing to geocode for ''!`,
+        "Русский": `Ошибка! Нет информации по городу ''!`,
+    }, 
+    "weatherError404": {
+     //   "English": `Error! City not found for '${city.value}'!`,
+     //   "Русский": `Ошибка! Город '${city.value}' не найден!`,
+    }, 
+    "humidity": {
+        "English": 'Humidity: ',
+        "Русский": "Влажность: ",
+    }, 
+    "wind": {
+        "English": ['Wind speed: ', 'm/s'],
+        "Русский": ["Скорость ветра: ", 'м/с'],
     }, 
 }
 
