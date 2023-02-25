@@ -472,13 +472,13 @@ body {
 .settins__section {
   margin: 0 auto;
   background-color: #444;
-  opacity: .8;
+  opacity: 0;
   border-radius: 10px;
-  display: none;
+  transition: all 1s linear
 }
 
 .settings-On {
-  display: block;
+  opacity: 0.8;
 }
 
 .set-item {

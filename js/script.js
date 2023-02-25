@@ -11,63 +11,67 @@ const langArr = {
     "url": {
         "English": ['https://api.openweathermap.org/data/2.5/weather?q=', '&lang=en&appid=e3c0174eab562c282118d28ef2a476cd&units=metric'],
         "Русский": ['https://api.openweathermap.org/data/2.5/weather?q=', '&lang=ru&appid=e3c0174eab562c282118d28ef2a476cd&units=metric']
-    }, 
+    },
     "weatherError": {
         "English": `Error! Nothing to geocode for ''!`,
         "Русский": `Ошибка! Нет информации по городу ''!`,
-    }, 
+    },
     "weatherError404": {
         "English": `Error! City not found for `,
         "Русский": `Ошибка! Не найден город `,
-    }, 
+    },
     "humidity": {
         "English": 'Humidity: ',
         "Русский": "Влажность: ",
-    }, 
+    },
     "wind": {
         "English": ['Wind speed: ', 'm/s'],
         "Русский": ["Скорость ветра: ", 'м/с'],
-    }, 
+    },
     "quote": {
         "English": 'data.json',
         "Русский": 'dataRu.json',
-    }, 
+    },
     "date": {
         "English": 'en',
         "Русский": 'ru',
-    }, 
+    },
     "greeting": {
         "English": ['Good', 'morning', 'afternoon', 'evening', 'night'],
         "Русский": ["Хорошего", 'утра', 'дня', 'вечера', 'сна'],
-    }, 
+    },
     'checkWeather': {
         "English": 'Show weather',
         "Русский": 'Показывать погоду',
-    }, 
+    },
     'checkPlayer': {
         "English": 'Show player',
         "Русский": 'Показывать плеер',
-    }, 
+    },
     'checkCustomPlayer': {
         "English": 'Show custom player',
         "Русский": 'Показывать продвинутый плеер',
-    }, 
+    },
     'checkDate': {
         "English": 'Show Date',
         "Русский": 'Показывать дату',
-    }, 
+    },
     'checkTime': {
         "English": 'Show Time',
         "Русский": 'Показывать время',
-    }, 
+    },
     'checkGreeting': {
         "English": 'Show Greeting',
         "Русский": 'Показывать приветствие',
-    }, 
+    },
     'checkQuote': {
         "English": 'Show Quote',
         "Русский": 'Показывать цитату дня',
-    }, 
+    },
+    'checkBackgroung': {
+        "English": 'Choose background source: ',
+        "Русский": 'Выберите источник фона: ',
+    },
 }
 
 // увеличение шрифта
@@ -116,7 +120,7 @@ function getTimeOfDay(hours) {
 }
 function showGreeting(hours) {
     const timeOfDay = getTimeOfDay(hours)
-    const greetingText = `${ langArr.greeting[lang][0] } ${ timeOfDay } `
+    const greetingText = `${langArr.greeting[lang][0]} ${timeOfDay} `
     greet.textContent = greetingText
 }
 
@@ -148,31 +152,48 @@ window.addEventListener('load', getLocalStorage)
 
 function getRandomNum() {
     randomNum = Math.floor(Math.random() * 20) + 1
+    //randomNum = randomNum
     return randomNum
 }
-
-function setBg() {
-    randomNum = randomNum.toString().padStart(2, '0')
-    const img = new Image()
-    img.src = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum}.jpg`
-img.onload = () => {
-    document.body.style.backgroundImage = `url(${img.src})`
-    getWeather()
-}
-}
 getRandomNum()
+let urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+function setBg() {
+    //randomNum = randomNum.toString().padStart(2, '0')
+    const img = new Image()
+    img.src = urlBackgroungSrc
+    img.onload = () => {
+        console.log('in setBg()')
+        console.log(urlBackgroungSrc)
+        document.body.style.backgroundImage = `url(${img.src})`
+        getWeather()
+    }
+}
+
 setBg()
 
 function getSlideNext() {
     randomNum++
     randomNum = randomNum === 21 ? 1 : randomNum
-    setBg()
+    //randomNum = randomNum.toString().padStart(2, '0')
+    if (backgroundSourse === 'gitHub') {
+        urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+        setBg()
+    } else if (backgroundSourse === 'unsplash') {
+        getLinkToImage()    
+    }
+
 }
 
 function getSlidePrev() {
     randomNum--
     randomNum = randomNum === 0 ? 20 : randomNum
+   // randomNum = randomNum.toString().padStart(2, '0')
+   if (backgroundSourse === 'gitHub') {
+    urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
     setBg()
+} else if (backgroundSourse === 'unsplash') {
+    getLinkToImage()    
+}
 }
 
 slideNext.addEventListener('click', getSlideNext)
@@ -325,6 +346,36 @@ function changeLanguage() {
 changeLanguage();
 
 // 9. Получение фонового изображения от API
+async function getLinkToImage() {
+    const url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=nkTAiluFjm_LLanf9MP48O8hjUng0SzV_SVykNQV2yo'
+    const res = await fetch(url);
+    const data = await res.json();
+    urlBackgroungSrc = data.urls.regular
+    setBg()
+    return urlBackgroungSrc
+}
+
+const radioButtons = document.getElementsByName("radio")
+for (const radioButton of radioButtons) {
+    radioButton.addEventListener('change', showSelected);
+}
+let backgroundSourse = 'gitHub'
+function showSelected(e) {
+    if (this.checked) {
+        backgroundSourse = this.value
+        if (backgroundSourse === 'unsplash') {
+            getLinkToImage()    
+        } else if (backgroundSourse === 'flickr') {
+        
+        } else if (backgroundSourse === 'gitHub') {
+            getRandomNum()
+            urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+            setBg()
+        }
+        console.log(this.value)
+    }
+}
+
 
 
 // 10. Настройки приложения
@@ -332,72 +383,71 @@ const settingsBtn = document.querySelector('.settings')
 const settingsSection = document.querySelector('.settins__section')
 settingsBtn.addEventListener('click', popUpSettings)
 function popUpSettings() {
-    //settingsBtn.hidden = true
     settingsBtn.classList.toggle('settings-close')
     settingsSection.classList.toggle('settings-On')
 }
 
 const visibWeather = document.querySelector('.visibWeather')
 visibWeather.addEventListener('click', () => {
-    if (visibWeather.checked == true){
+    if (visibWeather.checked == true) {
         document.querySelector('.weather').style.opacity = 1
-      } else {
+    } else {
         document.querySelector('.weather').style.opacity = 0
-      }
+    }
 })
 
 const visibPlayer = document.querySelector('.visibPlayer')
 visibPlayer.addEventListener('click', () => {
-    if (visibPlayer.checked == true){
+    if (visibPlayer.checked == true) {
         document.querySelector('.player').style.opacity = 1
-      } else {
+    } else {
         document.querySelector('.player').style.opacity = 0
-      }
+    }
 })
 
 const visibCustomPlayer = document.querySelector('.visibCustomPlayer')
 visibCustomPlayer.addEventListener('click', () => {
-    if (visibCustomPlayer.checked == true){
+    if (visibCustomPlayer.checked == true) {
         document.querySelector('.contaner').style.opacity = 1
-      } else {
+    } else {
         document.querySelector('.contaner').style.opacity = 0
-      }
+    }
 })
 
 const visibDate = document.querySelector('.visibDate')
 visibDate.addEventListener('click', () => {
-    if (visibDate.checked == true){
+    if (visibDate.checked == true) {
         document.querySelector('.date').style.opacity = 1
-      } else {
+    } else {
         document.querySelector('.date').style.opacity = 0
-      }
+    }
 })
 
 const visibTime = document.querySelector('.visibTime')
 visibTime.addEventListener('click', () => {
-    if (visibTime.checked == true){
+    if (visibTime.checked == true) {
         document.querySelector('.time').style.opacity = 1
-      } else {
+    } else {
         document.querySelector('.time').style.opacity = 0
-      }
+    }
 })
 
 const visibGreeting = document.querySelector('.visibGreeting')
 visibGreeting.addEventListener('click', () => {
-    if (visibGreeting.checked == true){
+    if (visibGreeting.checked == true) {
         document.querySelector('.greeting-container').style.opacity = 1
-      } else {
+    } else {
         document.querySelector('.greeting-container').style.opacity = 0
-      }
+    }
 })
 
 const visibQuote = document.querySelector('.visibQuote')
 visibQuote.addEventListener('click', () => {
-    if (visibQuote.checked == true){
+    if (visibQuote.checked == true) {
         document.querySelector('.quote-of-day').style.opacity = 1
-      } else {
+    } else {
         document.querySelector('.quote-of-day').style.opacity = 0
-      }
+    }
 })
 
 
@@ -413,4 +463,4 @@ visibQuote.addEventListener('click', () => {
     7. Продвинутый аудиоплеер +-
     8. Перевод приложения +-
     9. Получение фонового изображения от API
-    10. Настройки приложения`) */
+    10. Настройки приложения +-`) */
