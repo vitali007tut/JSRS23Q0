@@ -40,11 +40,34 @@ const langArr = {
         "English": ['Good', 'morning', 'afternoon', 'evening', 'night'],
         "Русский": ["Хорошего", 'утра', 'дня', 'вечера', 'сна'],
     }, 
-    'visibWeather': {
+    'checkWeather': {
         "English": 'Show weather',
         "Русский": 'Показывать погоду',
     }, 
-
+    'checkPlayer': {
+        "English": 'Show player',
+        "Русский": 'Показывать плеер',
+    }, 
+    'checkCustomPlayer': {
+        "English": 'Show custom player',
+        "Русский": 'Показывать продвинутый плеер',
+    }, 
+    'checkDate': {
+        "English": 'Show Date',
+        "Русский": 'Показывать дату',
+    }, 
+    'checkTime': {
+        "English": 'Show Time',
+        "Русский": 'Показывать время',
+    }, 
+    'checkGreeting': {
+        "English": 'Show Greeting',
+        "Русский": 'Показывать приветствие',
+    }, 
+    'checkQuote': {
+        "English": 'Show Quote',
+        "Русский": 'Показывать цитату дня',
+    }, 
 }
 
 // увеличение шрифта
@@ -313,7 +336,71 @@ function popUpSettings() {
     settingsBtn.classList.toggle('settings-close')
     settingsSection.classList.toggle('settings-On')
 }
-//document.querySelector('.visibWeather').textContent(langArr.visibWeather[lang])
+
+const visibWeather = document.querySelector('.visibWeather')
+visibWeather.addEventListener('click', () => {
+    if (visibWeather.checked == true){
+        document.querySelector('.weather').style.opacity = 1
+      } else {
+        document.querySelector('.weather').style.opacity = 0
+      }
+})
+
+const visibPlayer = document.querySelector('.visibPlayer')
+visibPlayer.addEventListener('click', () => {
+    if (visibPlayer.checked == true){
+        document.querySelector('.player').style.opacity = 1
+      } else {
+        document.querySelector('.player').style.opacity = 0
+      }
+})
+
+const visibCustomPlayer = document.querySelector('.visibCustomPlayer')
+visibCustomPlayer.addEventListener('click', () => {
+    if (visibCustomPlayer.checked == true){
+        document.querySelector('.contaner').style.opacity = 1
+      } else {
+        document.querySelector('.contaner').style.opacity = 0
+      }
+})
+
+const visibDate = document.querySelector('.visibDate')
+visibDate.addEventListener('click', () => {
+    if (visibDate.checked == true){
+        document.querySelector('.date').style.opacity = 1
+      } else {
+        document.querySelector('.date').style.opacity = 0
+      }
+})
+
+const visibTime = document.querySelector('.visibTime')
+visibTime.addEventListener('click', () => {
+    if (visibTime.checked == true){
+        document.querySelector('.time').style.opacity = 1
+      } else {
+        document.querySelector('.time').style.opacity = 0
+      }
+})
+
+const visibGreeting = document.querySelector('.visibGreeting')
+visibGreeting.addEventListener('click', () => {
+    if (visibGreeting.checked == true){
+        document.querySelector('.greeting-container').style.opacity = 1
+      } else {
+        document.querySelector('.greeting-container').style.opacity = 0
+      }
+})
+
+const visibQuote = document.querySelector('.visibQuote')
+visibQuote.addEventListener('click', () => {
+    if (visibQuote.checked == true){
+        document.querySelector('.quote-of-day').style.opacity = 1
+      } else {
+        document.querySelector('.quote-of-day').style.opacity = 0
+      }
+})
+
+
 
 
 /* console.log(`Self marks:
