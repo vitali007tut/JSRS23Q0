@@ -40,6 +40,11 @@ const langArr = {
         "English": ['Good', 'morning', 'afternoon', 'evening', 'night'],
         "Русский": ["Хорошего", 'утра', 'дня', 'вечера', 'сна'],
     }, 
+    'visibWeather': {
+        "English": 'Show weather',
+        "Русский": 'Показывать погоду',
+    }, 
+
 }
 
 // увеличение шрифта
@@ -287,7 +292,6 @@ function changeLanguage() {
     getWeather()
 
     for (let key in langArr) {
-        //console.log(key)
         let elem = document.querySelector(`.${key}`);
         if (elem) {
             elem.innerHTML = langArr[key][lang];
@@ -297,8 +301,19 @@ function changeLanguage() {
 
 changeLanguage();
 
+// 9. Получение фонового изображения от API
 
 
+// 10. Настройки приложения
+const settingsBtn = document.querySelector('.settings')
+const settingsSection = document.querySelector('.settins__section')
+settingsBtn.addEventListener('click', popUpSettings)
+function popUpSettings() {
+    //settingsBtn.hidden = true
+    settingsBtn.classList.toggle('settings-close')
+    settingsSection.classList.toggle('settings-On')
+}
+//document.querySelector('.visibWeather').textContent(langArr.visibWeather[lang])
 
 
 /* console.log(`Self marks:
@@ -308,7 +323,7 @@ changeLanguage();
     4. Виджет погоды +15
     5. Виджет "цитата дня" +10
     6. Аудиоплеер +15
-    7. Продвинутый аудиоплеер
-    8. Перевод приложения
+    7. Продвинутый аудиоплеер +-
+    8. Перевод приложения +-
     9. Получение фонового изображения от API
     10. Настройки приложения`) */
