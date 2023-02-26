@@ -495,3 +495,15 @@ body {
 .quote-of-day {
   transition: all 1s linear
 }
+
+.tagNameItem {
+  opacity: 0;
+  transition: all 1s linear
+}
+.inputtagName{
+  font-size: 20px;
+  color:chartreuse;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+}

@@ -72,6 +72,10 @@ const langArr = {
         "English": 'Choose background source: ',
         "Русский": 'Выберите источник фона: ',
     },
+    'tagName': {
+        "English": 'Write background tag: ',
+        "Русский": 'Напиши тему для источника фона: ',
+    },
 }
 
 // увеличение шрифта
@@ -162,8 +166,8 @@ function setBg() {
     const img = new Image()
     img.src = urlBackgroungSrc
     img.onload = () => {
-       // console.log('in setBg()')
-        console.log(urlBackgroungSrc)
+        // console.log('in setBg()')
+        //console.log(urlBackgroungSrc)
         document.body.style.backgroundImage = `url(${img.src})`
         getWeather()
     }
@@ -183,7 +187,6 @@ function getSlideNext() {
     } else if (backgroundSourse === 'flickr') {
         randomNumFlickr++
         randomNumFlickr = randomNumFlickr === arrPhotos.length ? 0 : randomNumFlickr
-        console.log('randomNumFlickr', randomNumFlickr)
         urlBackgroungSrc = arrPhotos[randomNumFlickr]
         setBg()
     }
@@ -358,9 +361,24 @@ changeLanguage();
 
 // 9. Получение фонового изображения от API
 
+// tag for background
+let tagBackground = timeOfDay
+const inputtagName = document.querySelector('.inputtagName')
+inputtagName.value = tagBackground
+inputtagName.addEventListener('change', function () {
+    tagBackground = inputtagName.value
+    //console.log('tagBackground :>> ', tagBackground);
+    if (backgroundSourse === 'unsplash') {
+        getLinkToImage()
+    } else if (backgroundSourse === 'flickr') {
+        getLinkToImage2()
+    }
+}
+)
+
 // для unsplash
 async function getLinkToImage() {
-    const url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=nkTAiluFjm_LLanf9MP48O8hjUng0SzV_SVykNQV2yo'
+    const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${tagBackground}&client_id=nkTAiluFjm_LLanf9MP48O8hjUng0SzV_SVykNQV2yo`
     const res = await fetch(url);
     const data = await res.json();
     urlBackgroungSrc = data.urls.regular
@@ -373,7 +391,7 @@ async function getLinkToImage() {
 let arrPhotos = []
 let randomNumFlickr = 0
 async function getLinkToImage2() {
-    const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=def91e9de3d8d6ce17f9f136b96f9655&tags=nature&extras=url_l&format=json&nojsoncallback=1'
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=def91e9de3d8d6ce17f9f136b96f9655&tags=${tagBackground}&extras=url_l&format=json&nojsoncallback=1`
     const res = await fetch(url);
     const data = await res.json();
     const arrObjectPhotos = data.photos.photo
@@ -384,26 +402,28 @@ async function getLinkToImage2() {
     setBg()
 }
 
-
-
 const radioButtons = document.getElementsByName("radio")
 for (const radioButton of radioButtons) {
     radioButton.addEventListener('change', showSelected);
 }
 let backgroundSourse = 'gitHub'
+const tagNameItem = document.querySelector('.tagNameItem')
 function showSelected(e) {
     if (this.checked) {
         backgroundSourse = this.value
         if (backgroundSourse === 'unsplash') {
+            tagNameItem.style.opacity = 1
             getLinkToImage()
         } else if (backgroundSourse === 'flickr') {
+            tagNameItem.style.opacity = 1
             getLinkToImage2()
         } else if (backgroundSourse === 'gitHub') {
+            tagNameItem.style.opacity = 0
             getRandomNum()
             urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
             setBg()
         }
-        console.log(this.value)
+        //console.log(this.value)
     }
 }
 
@@ -492,6 +512,8 @@ visibQuote.addEventListener('click', () => {
     5. Виджет "цитата дня" +10
     6. Аудиоплеер +15
     7. Продвинутый аудиоплеер +-
-    8. Перевод приложения +-
-    9. Получение фонового изображения от API
-    10. Настройки приложения +-`) */
+    8. Перевод приложения +15
+    9. Получение фонового изображения от API +10
+    10. Настройки приложения +-настройки приложения сохраняются при перезагрузке страницы +5
+    11. Дополнительный функционал на выбор -`) 
+    */
