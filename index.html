@@ -82,62 +82,76 @@
 
   </main>
   <footer class="footer">
-    <div>
-      <button class="settings"></button>
-      <div class="settins__section">
-        <div class="wrapper">
-          <ul>
 
-              <div class="translator">
-                <button class="lang en langActive">English</button>
-                <button class="lang ru">Русский</button>
-              </div>
-
-            <li class="set-item">
-              <label class="checkWeather"></label> 
-              <input type="checkbox" class="visibWeather" checked>
-
-              <label class="checkPlayer"></label> 
-              <input type="checkbox" class="visibPlayer" checked>
-
-              <label class="checkCustomPlayer"></label> 
-              <input type="checkbox" class="visibCustomPlayer" checked>
-            </li>
-            <li class="set-item">
-              <label class="checkDate"></label> 
-              <input type="checkbox" class="visibDate" checked>
-
-              <label class="checkTime"></label> 
-              <input type="checkbox" class="visibTime" checked>
-
-              <label class="checkGreeting"></label> 
-              <input type="checkbox" class="visibGreeting" checked>
-            </li>
-            <li class="set-item">
-              <label class="checkQuote"></label> 
-              <input type="checkbox" class="visibQuote" checked>
-            </li>
-            <li class="set-item">
-              <label class="checkBackgroung"></label> 
-              <label class="container">GitHub
-                <input type="radio" value="gitHub" checked="checked" name="radio">
-              </label>
-              <label class="container">Unsplash API
-                <input type="radio" value="unsplash" name="radio">
-              </label>
-              <label class="container">Flickr API
-                <input type="radio" value="flickr" name="radio">
-              </label>
-            </li>
-            <li class="set-item tagNameItem">
-              <label class="tagName"></label>
-                <input type="text" class="inputtagName" />
-              
-            </li>
-          </ul>
+    <div class="custom_items_contaner">
+      <div>
+        <div class="settins__section">
+          <div class="wrapper">
+            <ul>
+                <div class="translator">
+                  <button class="lang en langActive">English</button>
+                  <button class="lang ru">Русский</button>
+                </div>
+  
+              <li class="set-item">
+                <label class="checkWeather"></label> 
+                <input type="checkbox" class="visibWeather" checked>
+  
+                <label class="checkPlayer"></label> 
+                <input type="checkbox" class="visibPlayer" checked>
+  
+                <label class="checkCustomPlayer"></label> 
+                <input type="checkbox" class="visibCustomPlayer" checked>
+              </li>
+              <li class="set-item">
+                <label class="checkDate"></label> 
+                <input type="checkbox" class="visibDate" checked>
+  
+                <label class="checkTime"></label> 
+                <input type="checkbox" class="visibTime" checked>
+  
+                <label class="checkGreeting"></label> 
+                <input type="checkbox" class="visibGreeting" checked>
+              </li>
+              <li class="set-item">
+                <label class="checkQuote"></label> 
+                <input type="checkbox" class="visibQuote" checked>
+                <label class="checkToDo"></label> 
+                <input type="checkbox" class="visibToDo" checked>
+              </li>
+              <li class="set-item">
+                <label class="checkBackgroung"></label> 
+                <label class="container">GitHub
+                  <input type="radio" value="gitHub" checked="checked" name="radio">
+                </label>
+                <label class="container">Unsplash API
+                  <input type="radio" value="unsplash" name="radio">
+                </label>
+                <label class="container">Flickr API
+                  <input type="radio" value="flickr" name="radio">
+                </label>
+              </li>
+              <li class="set-item tagNameItem">
+                <label class="tagName"></label>
+                  <input type="text" class="inputtagName" />
+              </li>
+            </ul>
+          </div>
         </div>
+        <button class="settings"></button>
+      </div>
+  
+      <div>
+        <ul class="ul_todo todo-close">
+        </ul>
+        <div class="todo_header todo-close">
+          <input type="text" class="todo_input" placeholder="Title...">
+          <span class="addBtn">Add</span>
+        </div>
+        <button class="ToDoBnt">To Do</button>
       </div>
     </div>
+    
 
     <div class="quote-of-day">
       <button class="change-quote"></button>

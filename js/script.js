@@ -76,10 +76,14 @@ const langArr = {
         "English": 'Write background tag: ',
         "Русский": 'Напиши тему для источника фона: ',
     },
+    'checkToDo': {
+        "English": 'Show ToDo: ',
+        "Русский": 'Показвать список дел: ',
+    },
 }
 
 // увеличение шрифта
-document.querySelector('body').style.fontSize = '30' + 'px'
+document.querySelector('body').style.fontSize = '20' + 'px'
 
 // 1. Часы и календарь
 const time = document.querySelector('.time')
@@ -501,6 +505,74 @@ visibQuote.addEventListener('click', () => {
     }
 })
 
+const visibToDo = document.querySelector('.visibToDo')
+visibToDo.addEventListener('click', () => {
+    if (visibToDo.checked == true) {
+        document.querySelector('.ToDoBnt').style.opacity = 1
+    } else {
+        document.querySelector('.ToDoBnt').style.opacity = 0
+    }
+})
+
+// To Do
+// добавляем close для списка
+const myNodelist = document.querySelectorAll('.todo_item');
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+}
+// hide close item
+var close = document.querySelectorAll(".close");
+var i;
+for (i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+        var div = this.parentElement;
+        div.style.display = "none";
+    }
+}
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('.ul_todo');
+list.addEventListener('click', function (ev) {
+    if (ev.target.classList.contains('todo_item')) {
+        ev.target.classList.toggle('checked');
+    }
+}, false);
+// Create a new list item when clicking on the "Add" button
+document.querySelector('.addBtn').addEventListener('click', newElement)
+
+function newElement() {
+    var li = document.createElement("li");
+    li.classList.add('todo_item')
+    var inputValue = document.querySelector('.todo_input').value;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    if (inputValue === '') {
+        alert("You must write something!");
+    } else {
+        document.querySelector('.ul_todo').appendChild(li);
+    }
+    document.querySelector('.todo_input').value = "";
+
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    close = document.querySelectorAll(".close")
+    close.forEach(element => element.addEventListener('click', () => {
+        element.parentElement.style.display = 'none'
+    }))
+}
+
+document.querySelector('.ToDoBnt').addEventListener('click', () => {
+    document.querySelector('.ul_todo').classList.toggle('todo-close')
+    document.querySelector('.todo_header').classList.toggle('todo-close')
+})
 
 
 
@@ -515,4 +587,4 @@ console.log(`Self marks:
     8. Перевод приложения +15
     9. Получение фонового изображения от API +10
     10. Настройки приложения +15-настройки приложения НЕ сохраняются при перезагрузке страницы
-    11. Дополнительный функционал на выбор -`)
+    11. Дополнительный функционал на выбор +10 ToDo`)
