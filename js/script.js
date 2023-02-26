@@ -162,7 +162,7 @@ function setBg() {
     const img = new Image()
     img.src = urlBackgroungSrc
     img.onload = () => {
-        console.log('in setBg()')
+       // console.log('in setBg()')
         console.log(urlBackgroungSrc)
         document.body.style.backgroundImage = `url(${img.src})`
         getWeather()
@@ -179,7 +179,13 @@ function getSlideNext() {
         urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
         setBg()
     } else if (backgroundSourse === 'unsplash') {
-        getLinkToImage()    
+        getLinkToImage()
+    } else if (backgroundSourse === 'flickr') {
+        randomNumFlickr++
+        randomNumFlickr = randomNumFlickr === arrPhotos.length ? 0 : randomNumFlickr
+        console.log('randomNumFlickr', randomNumFlickr)
+        urlBackgroungSrc = arrPhotos[randomNumFlickr]
+        setBg()
     }
 
 }
@@ -187,13 +193,18 @@ function getSlideNext() {
 function getSlidePrev() {
     randomNum--
     randomNum = randomNum === 0 ? 20 : randomNum
-   // randomNum = randomNum.toString().padStart(2, '0')
-   if (backgroundSourse === 'gitHub') {
-    urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
-    setBg()
-} else if (backgroundSourse === 'unsplash') {
-    getLinkToImage()    
-}
+    // randomNum = randomNum.toString().padStart(2, '0')
+    if (backgroundSourse === 'gitHub') {
+        urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+        setBg()
+    } else if (backgroundSourse === 'unsplash') {
+        getLinkToImage()
+    } else if (backgroundSourse === 'flickr') {
+        randomNumFlickr--
+        randomNumFlickr = randomNumFlickr === 0 ? arrPhotos.length - 1 : randomNumFlickr
+        urlBackgroungSrc = arrPhotos[randomNumFlickr]
+        setBg()
+    }
 }
 
 slideNext.addEventListener('click', getSlideNext)
@@ -346,6 +357,8 @@ function changeLanguage() {
 changeLanguage();
 
 // 9. Получение фонового изображения от API
+
+// для unsplash
 async function getLinkToImage() {
     const url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=nkTAiluFjm_LLanf9MP48O8hjUng0SzV_SVykNQV2yo'
     const res = await fetch(url);
@@ -354,6 +367,24 @@ async function getLinkToImage() {
     setBg()
     return urlBackgroungSrc
 }
+
+// для flickr
+// https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=def91e9de3d8d6ce17f9f136b96f9655&tags=nature&extras=url_l&format=json&nojsoncallback=1
+let arrPhotos = []
+let randomNumFlickr = 0
+async function getLinkToImage2() {
+    const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=def91e9de3d8d6ce17f9f136b96f9655&tags=nature&extras=url_l&format=json&nojsoncallback=1'
+    const res = await fetch(url);
+    const data = await res.json();
+    const arrObjectPhotos = data.photos.photo
+    const arr = arrObjectPhotos.filter(elem => elem.url_l).map(e => e.url_l)
+    arr.forEach(e => arrPhotos.push(e))
+    randomNumFlickr = Math.floor(Math.random() * arrPhotos.length)
+    urlBackgroungSrc = arrPhotos[randomNumFlickr]
+    setBg()
+}
+
+
 
 const radioButtons = document.getElementsByName("radio")
 for (const radioButton of radioButtons) {
@@ -364,9 +395,9 @@ function showSelected(e) {
     if (this.checked) {
         backgroundSourse = this.value
         if (backgroundSourse === 'unsplash') {
-            getLinkToImage()    
+            getLinkToImage()
         } else if (backgroundSourse === 'flickr') {
-        
+            getLinkToImage2()
         } else if (backgroundSourse === 'gitHub') {
             getRandomNum()
             urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
