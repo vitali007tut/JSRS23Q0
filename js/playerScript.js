@@ -20,9 +20,9 @@ const playBtnsPlaylist = document.querySelectorAll('.play--item')
 
 let songIndex = 0
 
-    // https://github.com/vitali007tut/audioForMomentum/blob/main/Songs/A%20Sense%20Of%20Symmetry.mp3?raw=true
-    //console.log(songs[0].replaceAll(' ', '%20'))
-    //vitali007tut-JSFEPRESCHOOL2022Q4\assets\Songs\A Sense Of Symmetry.mp3
+// https://github.com/vitali007tut/audioForMomentum/blob/main/Songs/A%20Sense%20Of%20Symmetry.mp3?raw=true
+//console.log(songs[0].replaceAll(' ', '%20'))
+//vitali007tut-JSFEPRESCHOOL2022Q4\assets\Songs\A Sense Of Symmetry.mp3
 
 function loadSong(song) {
     title.innerHTML = song
@@ -137,23 +137,20 @@ const pauseTimeObject = {}
 
 playBtnsPlaylist.forEach(e => {
     e.addEventListener('click', () => {
-        let pauseTime = audio.currentTime
-
-        loadSong(e.innerHTML)
-        songIndex = songs.indexOf(e.innerHTML)
 
         isPlaying = player.classList.contains('playCustomFlag')
-        isPlayItemFromPlaylist = e.classList.contains('item--active')
-        if (isPlaying && isPlayItemFromPlaylist) {
-
-            playBtnsPlaylist.forEach(e => e.classList.remove('item--active'))
-            pauseTimeObject[e.innerHTML] = pauseTime
+        if (e.classList.contains('item--active')) {
             pauseSong()
-
+        } else if (title.innerHTML === e.innerHTML) {
+            playSong()
+        } else if (isPlaying) {
+            pauseSong()
+            loadSong(e.innerHTML)
+            songIndex = songs.indexOf(e.innerHTML)
+            playSong()
         } else {
-            playBtnsPlaylist.forEach(e => e.classList.remove('item--active'))
-            if (pauseTimeObject[e.innerHTML]) audio.currentTime = pauseTimeObject[e.innerHTML]
-            e.classList.add('item--active')
+            loadSong(e.innerHTML)
+            songIndex = songs.indexOf(e.innerHTML)
             playSong()
         }
     })
