@@ -105,6 +105,17 @@ if (localStorage.getItem('language') === 'English') {
     document.querySelector('.en').classList.add('langActive')
 } else document.querySelector('.ru').classList.add('langActive')
 
+if (!localStorage.getItem('backgroundSourse')) {
+    localStorage.setItem('backgroundSourse', 'gitHub')
+} 
+
+let randomNum
+getRandomNum()
+let timeOfDay
+//showTime()
+
+
+
 // увеличение шрифта
 document.querySelector('body').style.fontSize = '20' + 'px'
 
@@ -112,11 +123,11 @@ document.querySelector('body').style.fontSize = '20' + 'px'
 const time = document.querySelector('.time')
 const dateCurrent = document.querySelector('.date')
 const greet = document.querySelector('.greeting')
-let randomNum
+
 const slideNext = document.querySelector('.slide-next')
 const slidePrev = document.querySelector('.slide-prev')
 let date
-let timeOfDay
+
 let hours
 let city = document.querySelector('.city')
 city.value = 'Minsk'
@@ -136,6 +147,29 @@ function showTime() {
     setTimeout(showTime, 1000)
 }
 showTime()
+let backgroundSourse = localStorage.getItem('backgroundSourse')
+let englishTimeOfDay = timeOfDay
+let urlBackgroungSrc //= `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+let randomNumFlickr = 0
+let arrPhotos = []
+if (!localStorage.getItem('tag')) {
+    localStorage.setItem('tag', englishTimeOfDay)
+} let tagBackground = localStorage.getItem('tag')
+
+if (backgroundSourse === 'gitHub') {
+    console.log(englishTimeOfDay)
+    console.log(randomNum.toString().padStart(2, '0'))
+    urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+    setBg()
+} else if (backgroundSourse === 'unsplash') {
+    getLinkToImage()
+} else if (backgroundSourse === 'flickr') {
+    randomNumFlickr++
+    randomNumFlickr = randomNumFlickr === arrPhotos.length ? 0 : randomNumFlickr
+    urlBackgroungSrc = arrPhotos[randomNumFlickr]
+    //setBg()
+    getLinkToImage2()
+}
 
 function showDate() {
     const options = { weekday: 'long', month: 'long', day: 'numeric' }
@@ -187,27 +221,24 @@ function getRandomNum() {
     return randomNum
 }
 
-let englishTimeOfDay = timeOfDay
 if (lang === 'Русский') {
     const index = langArr.greeting['Русский'].indexOf(getTimeOfDay(hours))
     englishTimeOfDay = langArr.greeting['English'][index]
 }
 
-getRandomNum()
-let urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+
+
+//let urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
 function setBg() {
-    //randomNum = randomNum.toString().padStart(2, '0')
     const img = new Image()
     img.src = urlBackgroungSrc
     img.onload = () => {
-        // console.log('in setBg()')
-        //console.log(urlBackgroungSrc)
         document.body.style.backgroundImage = `url(${img.src})`
         getWeather()
     }
 }
 
-setBg()
+//setBg()
 
 function getSlideNext() {
     randomNum++
@@ -397,13 +428,18 @@ changeLanguage();
 
 // 9. Получение фонового изображения от API
 
+/* if (!localStorage.getItem('tag')) {
+    localStorage.setItem('tag', englishTimeOfDay)
+} let tagBackground = localStorage.getItem('tag') */
+
+
 // tag for background
-let tagBackground = englishTimeOfDay
+//let tagBackground = englishTimeOfDay
 const inputtagName = document.querySelector('.inputtagName')
 inputtagName.value = tagBackground
 inputtagName.addEventListener('change', function () {
-    tagBackground = inputtagName.value
-    //console.log('tagBackground :>> ', tagBackground);
+    localStorage.setItem('tag', inputtagName.value)
+    tagBackground = localStorage.getItem('tag')
     if (backgroundSourse === 'unsplash') {
         getLinkToImage()
     } else if (backgroundSourse === 'flickr') {
@@ -424,8 +460,8 @@ async function getLinkToImage() {
 
 // для flickr
 // https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=def91e9de3d8d6ce17f9f136b96f9655&tags=nature&extras=url_l&format=json&nojsoncallback=1
-let arrPhotos = []
-let randomNumFlickr = 0
+//let arrPhotos = []
+//let randomNumFlickr = 0
 async function getLinkToImage2() {
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=def91e9de3d8d6ce17f9f136b96f9655&tags=${tagBackground}&extras=url_l&format=json&nojsoncallback=1`
     const res = await fetch(url);
@@ -442,11 +478,18 @@ const radioButtons = document.getElementsByName("radio")
 for (const radioButton of radioButtons) {
     radioButton.addEventListener('change', showSelected);
 }
-let backgroundSourse = 'gitHub'
+radioButtons.forEach(e => {
+    if (e.value === backgroundSourse) {
+        e.checked = "checked"
+        console.log(e.value)
+    }
+    })
+
 const tagNameItem = document.querySelector('.tagNameItem')
 function showSelected(e) {
     if (this.checked) {
         backgroundSourse = this.value
+        localStorage.setItem('backgroundSourse', backgroundSourse)
         if (backgroundSourse === 'unsplash') {
             tagNameItem.style.opacity = 1
             getLinkToImage()
@@ -456,7 +499,7 @@ function showSelected(e) {
         } else if (backgroundSourse === 'gitHub') {
             tagNameItem.style.opacity = 0
             getRandomNum()
-            urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+            urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
             setBg()
         }
         //console.log(this.value)
