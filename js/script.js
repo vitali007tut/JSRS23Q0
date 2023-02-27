@@ -80,7 +80,30 @@ const langArr = {
         "English": 'Show ToDo: ',
         "Русский": 'Показвать список дел: ',
     },
+    'todo_input': {
+        "English": 'Title...',
+        "Русский": 'Пиши сюда...',
+    },
+    'addBtn': {
+        "English": 'Add',
+        "Русский": '+',
+    },
+    'ToDoBnt': {
+        "English": 'To Do',
+        "Русский": 'Список дел',
+    },
+    'alertNewElement': {
+        "English": 'You must write something!',
+        "Русский": 'Напиши дела, а потом добавь!',
+    },
 }
+
+if (!localStorage.getItem('language')) {
+    localStorage.setItem('language', 'English')
+}
+if (localStorage.getItem('language') === 'English') {
+    document.querySelector('.en').classList.add('langActive')
+} else document.querySelector('.ru').classList.add('langActive')
 
 // увеличение шрифта
 document.querySelector('body').style.fontSize = '20' + 'px'
@@ -100,7 +123,7 @@ city.value = 'Minsk'
 let isPlay = false
 let playNum = 0
 const audio = new Audio()
-let lang = 'English'
+let lang = localStorage.getItem('language')
 
 function showTime() {
     date = new Date()
@@ -163,8 +186,15 @@ function getRandomNum() {
     //randomNum = randomNum
     return randomNum
 }
+
+let englishTimeOfDay = timeOfDay
+if (lang === 'Русский') {
+    const index = langArr.greeting['Русский'].indexOf(getTimeOfDay(hours))
+    englishTimeOfDay = langArr.greeting['English'][index]
+}
+
 getRandomNum()
-let urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+let urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
 function setBg() {
     //randomNum = randomNum.toString().padStart(2, '0')
     const img = new Image()
@@ -182,9 +212,9 @@ setBg()
 function getSlideNext() {
     randomNum++
     randomNum = randomNum === 21 ? 1 : randomNum
-    //randomNum = randomNum.toString().padStart(2, '0')
+    
     if (backgroundSourse === 'gitHub') {
-        urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+        urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
         setBg()
     } else if (backgroundSourse === 'unsplash') {
         getLinkToImage()
@@ -200,9 +230,9 @@ function getSlideNext() {
 function getSlidePrev() {
     randomNum--
     randomNum = randomNum === 0 ? 20 : randomNum
-    // randomNum = randomNum.toString().padStart(2, '0')
+
     if (backgroundSourse === 'gitHub') {
-        urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
+        urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
         setBg()
     } else if (backgroundSourse === 'unsplash') {
         getLinkToImage()
@@ -343,6 +373,7 @@ langButtons.forEach(e => {
         }
 
         lang = document.querySelector('.langActive').textContent
+        localStorage.setItem('language', lang)
         changeLanguage()
     })
 })
@@ -350,6 +381,7 @@ langButtons.forEach(e => {
 function changeLanguage() {
     document.querySelector('input.name').placeholder = langArr['placeholder'][lang]
     city.placeholder = langArr['placeholder-city'][lang]
+    document.querySelector('.todo_input').placeholder = langArr.todo_input[lang]
     getQuotes()
     getWeather()
 
@@ -366,7 +398,7 @@ changeLanguage();
 // 9. Получение фонового изображения от API
 
 // tag for background
-let tagBackground = timeOfDay
+let tagBackground = englishTimeOfDay
 const inputtagName = document.querySelector('.inputtagName')
 inputtagName.value = tagBackground
 inputtagName.addEventListener('change', function () {
@@ -515,25 +547,7 @@ visibToDo.addEventListener('click', () => {
 })
 
 // To Do
-// добавляем close для списка
-const myNodelist = document.querySelectorAll('.todo_item');
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodelist[i].appendChild(span);
-}
-// hide close item
-var close = document.querySelectorAll(".close");
-var i;
-for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-        var div = this.parentElement;
-        div.style.display = "none";
-    }
-}
+
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('.ul_todo');
 list.addEventListener('click', function (ev) {
@@ -551,7 +565,7 @@ function newElement() {
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
     if (inputValue === '') {
-        alert("You must write something!");
+        alert(langArr.alertNewElement[lang]);
     } else {
         document.querySelector('.ul_todo').appendChild(li);
     }
@@ -586,5 +600,5 @@ console.log(`Self marks:
     7. Продвинутый аудиоплеер +20
     8. Перевод приложения +15
     9. Получение фонового изображения от API +10
-    10. Настройки приложения +15-настройки приложения НЕ сохраняются при перезагрузке страницы
+    10. Настройки приложения +16+
     11. Дополнительный функционал на выбор +10 ToDo`)
