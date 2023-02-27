@@ -80,6 +80,22 @@ const langArr = {
         "English": 'Show ToDo: ',
         "Русский": 'Показвать список дел: ',
     },
+    'todo_input': {
+        "English": 'Title...',
+        "Русский": 'Пиши сюда...',
+    },
+    'addBtn': {
+        "English": 'Add',
+        "Русский": '+',
+    },
+    'ToDoBnt': {
+        "English": 'To Do',
+        "Русский": 'Список дел',
+    },
+    'alertNewElement': {
+        "English": 'You must write something!',
+        "Русский": 'Напиши дела, а потом добавь!',
+    },
 }
 
 if (!localStorage.getItem('language')) {
@@ -365,6 +381,7 @@ langButtons.forEach(e => {
 function changeLanguage() {
     document.querySelector('input.name').placeholder = langArr['placeholder'][lang]
     city.placeholder = langArr['placeholder-city'][lang]
+    document.querySelector('.todo_input').placeholder = langArr.todo_input[lang]
     getQuotes()
     getWeather()
 
@@ -548,7 +565,7 @@ function newElement() {
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
     if (inputValue === '') {
-        alert("You must write something!");
+        alert(langArr.alertNewElement[lang]);
     } else {
         document.querySelector('.ul_todo').appendChild(li);
     }
