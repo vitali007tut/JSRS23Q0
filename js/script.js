@@ -107,7 +107,7 @@ if (localStorage.getItem('language') === 'English') {
 
 if (!localStorage.getItem('backgroundSourse')) {
     localStorage.setItem('backgroundSourse', 'gitHub')
-} 
+}
 
 let randomNum
 getRandomNum()
@@ -156,9 +156,12 @@ if (!localStorage.getItem('tag')) {
     localStorage.setItem('tag', englishTimeOfDay)
 } let tagBackground = localStorage.getItem('tag')
 
+if (lang === 'Русский') {
+    const index = langArr.greeting['Русский'].indexOf(getTimeOfDay(hours))
+    englishTimeOfDay = langArr.greeting['English'][index]
+}
+
 if (backgroundSourse === 'gitHub') {
-    console.log(englishTimeOfDay)
-    console.log(randomNum.toString().padStart(2, '0'))
     urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
     setBg()
 } else if (backgroundSourse === 'unsplash') {
@@ -167,7 +170,6 @@ if (backgroundSourse === 'gitHub') {
     randomNumFlickr++
     randomNumFlickr = randomNumFlickr === arrPhotos.length ? 0 : randomNumFlickr
     urlBackgroungSrc = arrPhotos[randomNumFlickr]
-    //setBg()
     getLinkToImage2()
 }
 
@@ -221,10 +223,10 @@ function getRandomNum() {
     return randomNum
 }
 
-if (lang === 'Русский') {
+/* if (lang === 'Русский') {
     const index = langArr.greeting['Русский'].indexOf(getTimeOfDay(hours))
     englishTimeOfDay = langArr.greeting['English'][index]
-}
+} */
 
 
 
@@ -243,7 +245,7 @@ function setBg() {
 function getSlideNext() {
     randomNum++
     randomNum = randomNum === 21 ? 1 : randomNum
-    
+
     if (backgroundSourse === 'gitHub') {
         urlBackgroungSrc = `https://raw.githubusercontent.com/vitali007tut/stage1-tasks/assets/images/${englishTimeOfDay}/${randomNum.toString().padStart(2, '0')}.jpg`
         setBg()
@@ -459,9 +461,6 @@ async function getLinkToImage() {
 }
 
 // для flickr
-// https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=def91e9de3d8d6ce17f9f136b96f9655&tags=nature&extras=url_l&format=json&nojsoncallback=1
-//let arrPhotos = []
-//let randomNumFlickr = 0
 async function getLinkToImage2() {
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=def91e9de3d8d6ce17f9f136b96f9655&tags=${tagBackground}&extras=url_l&format=json&nojsoncallback=1`
     const res = await fetch(url);
@@ -478,14 +477,18 @@ const radioButtons = document.getElementsByName("radio")
 for (const radioButton of radioButtons) {
     radioButton.addEventListener('change', showSelected);
 }
+
+const tagNameItem = document.querySelector('.tagNameItem')
+
 radioButtons.forEach(e => {
     if (e.value === backgroundSourse) {
         e.checked = "checked"
-        console.log(e.value)
+        tagNameItem.style.opacity = 1
     }
-    })
+    if (e.value === 'gitHub') tagNameItem.style.opacity = 0
+})
 
-const tagNameItem = document.querySelector('.tagNameItem')
+
 function showSelected(e) {
     if (this.checked) {
         backgroundSourse = this.value
@@ -643,5 +646,5 @@ console.log(`Self marks:
     7. Продвинутый аудиоплеер +20
     8. Перевод приложения +15
     9. Получение фонового изображения от API +10
-    10. Настройки приложения +16+
+    10. Настройки приложения +17 (-видимость элементов НЕ сохраняется при перезагрузке)
     11. Дополнительный функционал на выбор +10 ToDo`)
